@@ -15,6 +15,7 @@ class CierreSeeder extends Seeder
     public function run()
     {
         $cierre = new Cierre;
+        $cierre->id=1;
         $cierre->parcial ='{"parcial1":0,"parcial2":1,"parcial3":0,"parcial4":0}';
         $cierre->estado = 1;
 

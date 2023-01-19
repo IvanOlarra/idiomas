@@ -17,7 +17,10 @@ class Cardex extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'ID_CARDEX',
         'ID_ALUMNO',
         'ID_PLANESTUDIO'        
     ];
+    //Atributos no asignables en masa
+    protected $guarded = ['ID_CARDEX',];
 }

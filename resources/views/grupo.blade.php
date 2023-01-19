@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-
-
-
 @extends('layout/main')
 
 
@@ -124,8 +120,7 @@
     <!--Cuadro a Salir para AgregarGrupo-->
 
 
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+    <div class="modal  bd-example-modal-lg">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
 
@@ -135,12 +130,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-
-                <form action="{{ route('insert.agregar-grupo') }}" method="POST">
-                    @csrf
+                <div class="modal-body">
+                    <form action="{{ route('insert.agregar_grupo') }}" method="POST">
+                        @csrf
                     <div class="container">
-
                         <div class="row">
                             <!--Columna 1-->
                             <div class="col-sm">
@@ -189,9 +182,6 @@
                                         </div>
 
                                     </div>
-
-
-
                                     <div class="row">
                                         
                                         <div class="col-sm">
@@ -227,9 +217,18 @@
 
                                             </div>
                                         </div>
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dias:</label>
+                                                <input type="tel" name="GRUPO_DIAS" value="{{ old('GRUPO_DIAS') }}" maxlength="11"
+                                                    class="form-control form-control-sm" placeholder="Ejem: LUNES-VIERNES"
+                                                     required>
+                                                {!! $errors->first('GRUPO_DIAS','<span class="alert-danger">:message</span><br>')
+                                                !!}
+        
+                                            </div>
+                                        </div>
                                     </div>
-
-
                                     <div class="row">
                                         <div class="col-sm">
                                             <div class="form-group">
@@ -253,13 +252,10 @@
                                         </div>
                         
                                     </div>
-
-
-
                                     <div class="row">
                                         <div class="col-sm">
                                             <div class="form-group">
-                                                <label for="exampleFormControlInput1">Hora de Inicio:</label>
+                                                <label for="exampleFormControlInput1">Horario:</label>
                                                 <input type="text" placeholder="Ejem: 10:00 - 15:00" name="GRUPO_HORAS" class="form-control form-control-sm"
                                                     placeholder="Inicio" required>
                                                 {!! $errors->first('GRUPO_HORAS', '<span class="alert-danger">:message</span><br>') !!}
@@ -280,195 +276,31 @@
                                     </div>
                                      <div class="row">
                                         <div class="col-sm">
+                                                <label for="exampleFormControlSelect1">Descripción:</label>
                                                 <textarea  class="form-control" name="GRUPO_DES" maxlength="500" id="exampleFormControlTextarea1"></textarea>
                                                 
                                         </div>
                                        
                                      </div>
-
-
-
-                                </div>
-
-
-
+                                     <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-success">Agregar</button>
+                                    </div>
 
                             </div>
-
-                            <!--Columna 2
-                            <div class="col-sm">
-                                <div class="col-sm">
-
-
-                                    <div class="row">
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">ALU:</label>
-                                                <input type="text" name="GRU_ALU" value="{{ old('GRU_ALU') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="ALU" required>
-                                                {!! $errors->first('GRU_ALU', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">HMA:</label>
-                                                <input type="text" name="GRU_HMA" value="{{ old('GRU_HMA') }}"
-                                                    pattern="[A-Za-z]{1,5}" maxlength="5"
-                                                    class="form-control form-control-sm" placeholder="HMA" required>
-                                                {!! $errors->first('GRU_HMAE', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">AMA:</label>
-                                                <input type="text" name="GRU_AMA" value="{{ old('GRU_AMA') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="AMA" required>
-                                                {!! $errors->first('GRU_AMA', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">HMI:</label>
-                                                <input type="text" name="GRU_HMI" value="{{ old('GRU_HMI') }}"
-                                                    pattern="[A-Za-z]{1,5}" maxlength="5"
-                                                    class="form-control form-control-sm" placeholder="HMI" required>
-                                                {!! $errors->first('GRU_HMI', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">AMI:</label>
-                                                <input type="text" name="GRU_AMI" value="{{ old('GRU_AMI') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="AMI" required>
-                                                {!! $errors->first('GRU_AMI', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">HJU:</label>
-                                                <input type="text" name="GRU_HJU" value="{{ old('GRU_HJU') }}"
-                                                    pattern="[A-Za-z]{1,5}" maxlength="5"
-                                                    class="form-control form-control-sm" placeholder="HJU" required>
-                                                {!! $errors->first('GRU_HJU', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">AJU:</label>
-                                                <input type="text" name="GRU_AJU" value="{{ old('GRU_AJU') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="AJU" required>
-                                                {!! $errors->first('GRU_AJU', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">HVI:</label>
-                                                <input type="text" name="GRU_HVI" value="{{ old('GRU_HVI') }}"
-                                                    pattern="[A-Za-z]{1,5}" maxlength="5"
-                                                    class="form-control form-control-sm" placeholder="HVI" required>
-                                                {!! $errors->first('GRU_HVI', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">AVI:</label>
-                                                <input type="text" name="GRU_AVI" value="{{ old('GRU_AVI') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="AVI" required>
-                                                {!! $errors->first('GRU_AVI', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">HSA:</label>
-                                                <input type="text" name="GRU_HSA" value="{{ old('GRU_HSA') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="HSA" required>
-                                                {!! $errors->first('GRU_HSA', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">ASA:</label>
-                                                <input type="text" name="GRU_ASA" value="{{ old('GRU_ASA') }}"
-                                                    pattern="[A-Za-z]{1,3}" maxlength="3"
-                                                    class="form-control form-control-sm" placeholder="ASA" required>
-                                                {!! $errors->first('GRU_ASA', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">DES:</label>
-                                                <input type="text" name="GRU_DES" value="{{ old('GRU_DES') }}"
-                                                    pattern="[A-Za-z]{1,50}" maxlength="50"
-                                                    class="form-control form-control-sm" placeholder="DES" required>
-                                                {!! $errors->first('GRU_DES', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-                                </div>
-                            </div>-->
+                            
 
                         </div>
-
+                        
+                    </form>
                     </div>
+                </div>
+                
 
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success">Agregar</button>
-                    </div>
-
-                </form>
+                   
             </div>
-        </div>
     </div>
-
-
+</div>
     <div class="modal fade" id="cierreGrupo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">

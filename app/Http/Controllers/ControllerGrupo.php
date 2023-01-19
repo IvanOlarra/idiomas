@@ -38,18 +38,17 @@ class ControllerGrupo extends Controller
         return view('grupo', compact('selecgrup', 'selecplan', 'selecdocente', 'selecmod'));
     }
 
-    public function agregagrupo(ValidaGrupo $informacion)
-    {
+    public function agregagrupo(Request $informacion) {
         $selecmodulo = DB::table('grupos')->get();
         //llenar combo con los planes
        foreach($selecmodulo as $modulo){
         $this->id++;
        }
-          $this->id++;
-          print_r($this->id++);
+        $this->id++;
+
         DB::insert(
-            'INSERT INTO `grupos` (`ID_GRUPO`,`ID_MODULO`, `ID_DOCENTE`, `GRUPO_TIPO`, `GRUPO_CLA`, `GRUPO_NOM_GRUPO`, `GRUPO_DES`, `GRUPO_NUM_ALUMNOS`, `GRUPO_LIMITE`, `GRUPO_DIAS`, `GRUPO_HORAS`, `GRUPO_TOTAL_HORAS`, `GRUPO_UBICACION` ) 
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+            'INSERT INTO `grupos` (`ID_GRUPO`, `ID_MODULO`, `ID_DOCENTE`, `GRUPO_TIPO`, `GRUPO_CLA`, `GRUPO_NOM_GRUPO`, `GRUPO_DES`, `GRUPO_NUM_ALUMNOS`, `GRUPO_LIMITE`, `GRUPO_DIAS`, `GRUPO_HORAS`, `GRUPO_TOTAL_HORAS`, `GRUPO_UBICACION` ) 
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
             [
                 $this->id,
                 $informacion->ID_MODULO,
@@ -63,7 +62,7 @@ class ControllerGrupo extends Controller
                 'lunes',
                 $informacion->GRUPO_HORAS,  
                 $informacion->GRUPO_TOTAL_HORAS,
-                $informacion->GRUPO_UBICACION,
+                $informacion->GRUPO_UBICACION
             ]
         );
 
@@ -81,12 +80,8 @@ class ControllerGrupo extends Controller
             ->select(
 
                 'docentes.*',
-
-
                 'grupos.*',
                 'modulos.*',
-
-
 
             )->where('ID_GRUPO', '=', $id)->get();
 
@@ -99,7 +94,7 @@ class ControllerGrupo extends Controller
 
         )->get();
         $selecplan = DB::table('planestudios')->get();
-        $selecmod = Modulo::select('ID_MODULO')->get();
+        $selecmod = DB::table('modulos')->get();
 
 
 
@@ -114,34 +109,21 @@ class ControllerGrupo extends Controller
 
 
 
-        $selecalum = DB::table('grupos')->where('ID_GRUPO_NOMBRE', $id)->update([
+        $selecalum = DB::table('grupos')->where('ID_GRUPO', $id)->update([
 
-            'ID_GRUPO_NOMBRE' => $id,
-            'ID_PLANESTUDIO' => $informacion->ID_PLANESTUDIO,
             'ID_MODULO' => $informacion->ID_MODULO,
-            'GRUPO_SEMESTRE' => $informacion->GRUPO_SEMESTRE,
-            'GRUPO_TIPO' => $informacion->GRUPO_TIPO,
-            'GRUPO_NUM_ALUMNOS' => $informacion->GRUPO_NUM_ALUMNOS,
             'ID_DOCENTE' => $informacion->ID_DOCENTE,
-            'GRUPO_ID_UBICACION' => $informacion->GRUPO_ID_UBICACION,
-            'GRUPO_DIA' => $informacion->GRUPO_DIA,
-            'GRUPO_HORA_IN' => $informacion->GRUPO_HORA_IN,
-            'GRUPO_HORA_FIN' => $informacion->GRUPO_HORA_FIN,
-            'GRUPO_HORA_TOTAL' => $informacion->GRUPO_HORA_TOTAL,
-            'GRU_LIM' => $informacion->GRU_LIM,
-            'GRU_HLU' => $informacion->GRU_HLU,
-            'GRU_ALU' => $informacion->GRU_ALU,
-            'GRU_HMA' => $informacion->GRU_HMA,
-            'GRU_AMA' => $informacion->GRU_AMA,
-            'GRU_HMI' => $informacion->GRU_HMI,
-            'GRU_AMI' => $informacion->GRU_AMI,
-            'GRU_HJU' => $informacion->GRU_HJU,
-            'GRU_AJU' => $informacion->GRU_AJU,
-            'GRU_HVI' => $informacion->GRU_HVI,
-            'GRU_AVI' => $informacion->GRU_AVI,
-            'GRU_HSA' => $informacion->GRU_HSA,
-            'GRU_ASA' => $informacion->GRU_ASA,
-            'GRU_DES' => $informacion->GRU_DES,
+            'GRUPO_TIPO' => $informacion->GRUPO_TIPO,
+            'GRUPO_CLA' => $informacion->GRUPO_CLA,
+            'GRUPO_NOM_GRUPO' => $informacion->GRUPO_NOM_GRUPO,
+            'GRUPO_DES' => $informacion->GRUPO_DES,
+            'GRUPO_NUM_ALUMNOS' => $informacion->GRUPO_NUM_ALUMNOS,
+            'GRUPO_LIMITE' => $informacion->GRUPO_LIMITE,
+            'GRUPO_DIAS' => $informacion->GRUPO_DIAS,
+            'GRUPO_HORAS' => $informacion->GRUPO_HORAS,
+            'GRUPO_TOTAL_HORAS' => $informacion->GRUPO_TOTAL_HORAS,
+            'GRUPO_UBICACION' => $informacion->GRUPO_UBICACION,
+            
 
 
 

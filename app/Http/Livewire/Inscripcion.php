@@ -14,6 +14,7 @@ use App\Models\Cardex;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 
 class Inscripcion extends Component
@@ -69,7 +70,9 @@ class Inscripcion extends Component
     public $listaAlumnos;
 
     private $alumnosPaginado;
-
+    
+    public $idProgress=1;
+    public $idInscripcion=1;
 
     public function mount()
     {
@@ -132,8 +135,15 @@ class Inscripcion extends Component
         $modulo = $grupo->modulo()->first();
        
         //CREAR INSCRIPCION
+        $inscri = DB::table('inscripciones')->get();
+         $this->idInscripcion=1;
+         //llenar combo con los planes
+        foreach($inscri as $c){
+            $this->idInscripcion++;
+        }
+
         $inscripcion = Inscripcione::create([
-            'ID_INSCRIPCION' => $this->inscribiendo['folio']  ,
+            'ID_INSCRIPCION' => $this->idInscripcion  ,
             'ID_GRUPO' => $this->inscribiendo['idGrupo'],
             'ID_ALUMNO' => $this->inscribiendo['id'],
             'ID_DOCENTE' => $this->inscribiendo['docente'],
@@ -146,8 +156,16 @@ class Inscripcion extends Component
         ]);
         
          //VALIDAR SI EXISTE CARDEX
+         $cardex = DB::table('cardexes')->get();
+         $this->idProgress=1;
+         //llenar combo con los planes
+        foreach($cardex as $c){
+            $this->idProgress++;
+        }
+ 
          if(!$this->inscribiendo['cardex']){
             $cardex=Cardex::create([
+              'ID_CARDEX' => $this->idProgress,
               'ID_ALUMNO' => $this->inscribiendo['id'],
               'ID_PLANESTUDIO' => $this->inscribiendo['planEstudio'],
               'CARDEX_CALIF_MOD1' => 0,
@@ -165,11 +183,17 @@ class Inscripcion extends Component
          }
         $inscripcion->save();
         //Crear Calificación
+        $cal = DB::table('calificaciones')->get();
+        $this->idProgress=1;
+        //llenar combo con los planes
+       foreach($cal as $c){
+           $this->idProgress++;
+       }
         $calificacion = Calificacione::create([
-            'ID_CALIF' => $this->inscribiendo['folio'],
+            'ID_CALIF' => $this->idProgress,
             'ID_ALUMNO' => $this->inscribiendo['id'],
             'ID_GRUPO' => $this->inscribiendo['idGrupo'],
-            'ID_INSCRIPCION' => $this->inscribiendo['folio'],
+            'ID_INSCRIPCION' => $this->idInscripcion,
             'CALIF_PARCIAL1' => 0,
             'CALIF_PARCIAL2' => 0,
             'CALIF_PARCIAL3' => 0,
@@ -184,7 +208,7 @@ class Inscripcion extends Component
          if($this->inscribiendo['cantidadAdeudo']!=null){
          $adeudo = Adeudo::create([
             'ID_ADEUDO' => 1,
-            'ID_INSCRIPCION' => $this->inscribiendo['folio'],
+            'ID_INSCRIPCION' => $this->idInscripcion,
             'ID_ALUMNO' => $this->inscribiendo['id'],
             'ADEUDO_MONTO' => $this->inscribiendo['cantidadAdeudo'],
             'ADEUDO_FECHA' =>  $this->inscribiendo['fechaAdeudo'],

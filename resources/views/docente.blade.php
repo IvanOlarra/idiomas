@@ -281,12 +281,7 @@
                 </div>
               </div>
 
-            </div>
-
-
-
-            <div class="row">
-              <div class="col">
+              <div class="col-sm">
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Estado:</label>
                   <select class="form-control form-control-sm" name="DOCENTE_ESTADO" id="exampleFormControlSelect1">
@@ -327,7 +322,14 @@
                   </select>
                 </div>
               </div>
-              <div class="col">
+
+            </div>
+
+
+
+            <div class="row">
+              
+              <div class="col-sm">
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Municipio:</label>
                   <input type="text" class="form-control form-control-sm" maxlength="30" name="DOCENTE_MUNICIPIO"
@@ -337,20 +339,19 @@
                 </div>
               </div>
 
-
-              <div class="row">
                 <div class="col-sm">
                   <div class="form-group">
-                    <label for="exampleFormControlInput1">Telefono Celular:</label>
+                    <label for="exampleFormControlInput1">Teléfono Celular:</label>
                     <input type="tel" class="form-control form-control-sm" pattern="[0-9]{1,30}" maxlength="30"
                       name="DOCENTE_MOVIL" value="{{ old('DOCENTE_MOVIL') }}" placeholder="Telefono Celular">
                     {!! $errors->first('DOCENTE_MOVIL','<span class="alert-danger">:message</span><br>')
                     !!}
                   </div>
                 </div>
+
                 <div class="col-sm">
                   <div class="form-group">
-                    <label for="exampleFormControlInput1">Telefono Casa:</label>
+                    <label for="exampleFormControlInput1">Teléfono Casa:</label>
                     <input type="tel" class="form-control form-control-sm" name="DOCENTE_CASA"
                       value="{{ old('DOCENTE_CASA') }}" pattern="[0-9]{1,30}" maxlength="30"
                       placeholder="Telefono Casa">
@@ -360,14 +361,15 @@
                 </div>
                 <div class="col-sm">
                   <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    @livewire('busqueda-correo', ['nombre'=>'DOCENTE_CORREO'])
+                    <label for="exampleFormControlInput1">Correo:</label>
+                    <input name="DOCENTE_CORREO" value="{{ old('DOCENTE_CORREO') }}" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" maxlength="30" class="form-control form-control-sm" placeholder="Correo" required>
+                            {!! $errors->first(
+                             'DOCENTE_CORREO',
+                               '<span class="alert-danger">:message</span><br>',
+                                  ) !!}
                   </div>
                 </div>
               </div>
-
-
-            </div>
 
 
             <div class="row">

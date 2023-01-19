@@ -14,7 +14,7 @@
                 </select>
             </div>
         </div>
-        <div class="row my-3">
+      <!--  <div class="row my-3">
             <div class="col-2">
                 <select wire:model="cantidadRegistros" class="form-control">
                     <option value=1>1</option>
@@ -33,7 +33,7 @@
                 <input class="mr-sm-2 form-control " wire:model.debounce.500ms="busqueda" type="search"
                     placeholder="Búsqueda por nombre, correo o número de control." aria-label="Search">
             </div>
-        </div>
+        </div>-->
 
     </div>
 
@@ -109,14 +109,11 @@
         
 
     </div>
-    {{--<div class="container m-1">
-        <div class="row">
-            <div class="col-6">
-                {{ $alumnosPaginado->links() }}
-            </div>
-
-        </div>
-    </div>--}}
+    <script>
+        Livewire.on('grupoChanged', () => {
+            table.draw();
+        })
+    </script>
 
 
 </div>

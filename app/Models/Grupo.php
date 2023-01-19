@@ -35,10 +35,7 @@ class Grupo extends Model
     ];
 
     //Atributos no asignables en masa
-    protected $guarded = [
-        'ID_GRUPO',
-
-    ];
+    protected $guarded = ['ID_GRUPO',];
 
     //Relaciones
     public function modulo()

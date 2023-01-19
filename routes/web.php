@@ -52,13 +52,14 @@ Route::get('/modulo/{id_alu}', 'App\Http\Controllers\ControllerModulo@eliminarmo
 
 //      CRUD GRUPO
 //Create
-Route::post('/grupo', 'App\Http\Controllers\ControllerGrupo@agregagrupo')->name('insert.agregar-grupo')->middleware('permission:Admin|Secre');
-//Read
 Route::get('/grupo', 'App\Http\Controllers\ControllerGrupo@mostgrupo')->name('grupo.actualizado')->middleware('permission:Admin|Secre');
+
+Route::post('/grupo', 'App\Http\Controllers\ControllerGrupo@agregagrupo')->name('insert.agregar_grupo')->middleware('permission:Admin|Secre');
+//Read
 //Update
 Route::get('/grupo/cierre/{grupo}','App\Http\Controllers\ControllerGrupo@cierregrupo')->name('cierre.grupo_cierre')->middleware('permission:Admin|Secre');
 Route::get('/update/grupo/{id_alu}', 'App\Http\Controllers\ControllerGrupo@edit')->name('update.mostgrupo_modificar')->middleware('permission:Admin|Secre');
-Route::patch('/update/grupo/{id_alu}', 'App\Http\Controllers\ControllerGrupo@modificargrupo')->name('update.modoficar-grupo')->middleware('permission:Admin|Secre');
+Route::patch('/update/grupo/{id_alu}', 'App\Http\Controllers\ControllerGrupo@modificargrupo')->name('update.modificar-grupo')->middleware('permission:Admin|Secre');
 //Delete
 Route::get('/grupo/{id_alu}', 'App\Http\Controllers\ControllerGrupo@eliminargrupo')->name('delete.grupo_eliminar')->middleware('permission:Admin|Secre');
 //      CRUD DOCENTES

@@ -119,7 +119,7 @@ class CreateGeneralsTable extends Migration
             $table->string('GRUPO_TIPO', 8);
             $table->string('GRUPO_CLA', 15);
             $table->string('GRUPO_NOM_GRUPO');
-            $table->string('GRUPO_DES', 50);
+            $table->string('GRUPO_DES', 50)->nullable();;
             $table->integer('GRUPO_NUM_ALUMNOS');
             $table->integer('GRUPO_LIMITE');
             $table->string('GRUPO_DIAS', 30);

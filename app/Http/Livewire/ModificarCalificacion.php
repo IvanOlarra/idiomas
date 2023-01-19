@@ -110,7 +110,7 @@ class ModificarCalificacion extends Component
         $this->fillListaAlumnos();
         
     }
-
+   
 
         private function fillListaAlumnos()
         {
@@ -123,7 +123,7 @@ class ModificarCalificacion extends Component
                     where('inscripciones.ID_GRUPO', $this->grupo)->groupBy('alumnos.ID_ALUMNO')->paginate($this->cantidadRegistros);
                     
                } else {
-                   $this->alumnosPaginado = $this->buscarCampos(['ALUMNO_NOMBRE', 'ALUMNO_APELLIDO_PAT', 'ALUMNO_APELLIDO_MAT', 'ID_ALUMNO'], $this->busqueda, Alumno::class)->paginate($this->cantidadRegistros);
+                   $this->alumnosPaginado = $this->buscarCampos(['ALUMNO_NOMBRE', 'ALUMNO_APELLIDO_PAT', 'ALUMNO_APELLIDO_MAT', 'ID_ALUMNO',], $this->busqueda, Alumno::class)->paginate($this->cantidadRegistros);
                }
                 $lista=[];
                foreach ($this->alumnosPaginado as $i => $alumno){
@@ -199,7 +199,34 @@ class ModificarCalificacion extends Component
             }
         }
     
+        public function updatedGrupo()
+        { //Al cambiar el selector de grupo, se actualiza la lista de alumnos
+            $grupo = Grupo::where('ID_GRUPO', $this->grupo)->first();
+            $lista = $grupo->alumnos;
     
+            //asignamos una inscripcion a cada alumno basado en su grupo
+            $this->listaCalificaciones = [];
+    
+            foreach ($lista as $i => $alumno) {
+                $inscripcion = Inscripcione::
+                join('calificaciones', 'inscripciones.ID_ALUMNO', '=', 'calificaciones.ID_ALUMNO')->
+                join('calificaciones as cal', 'inscripciones.ID_GRUPO', '=', 'cal.ID_GRUPO')->
+                select('calificaciones.CALIF_PARCIAL1','calificaciones.CALIF_PARCIAL2','calificaciones.CALIF_PARCIAL3', 'calificaciones.CALIF_PARCIAL4')->
+                where('inscripciones.ID_ALUMNO', $alumno->ID_ALUMNO)->get()->first();
+                //Se agregan las calificaciones al response de alumnos
+                $lista[$i]->CALIF_PARCIAL1 = $inscripcion->CALIF_PARCIAL1;
+                $lista[$i]->CALIF_PARCIAL2 = $inscripcion->CALIF_PARCIAL2;
+                $lista[$i]->CALIF_PARCIAL3 = $inscripcion->CALIF_PARCIAL3;
+                $lista[$i]->CALIF_PARCIAL4 = $inscripcion->CALIF_PARCIAL4;
+                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL1'] = $inscripcion->CALIF_PARCIAL1;
+                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL2'] = $inscripcion->CALIF_PARCIAL2;
+                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL3']= $inscripcion->CALIF_PARCIAL3;
+                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL4'] = $inscripcion->CALIF_PARCIAL4;
+           
+            }
+            //Guardamos los datos en la lista de alumnos
+            $this->listaAlumnos = $lista;
+        }
 
     public function onGrupoChanged()
     {

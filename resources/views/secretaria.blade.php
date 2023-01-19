@@ -274,11 +274,6 @@
                                     </div>
                                 </div>
 
-                            </div>
-
-
-
-                            <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Estado:</label>
@@ -321,6 +316,13 @@
                                         </select>
                                     </div>
                                 </div>
+
+                            </div>
+
+
+
+                            <div class="row">
+                                
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Municipio:</label>
@@ -334,9 +336,6 @@
 ) !!}
                                     </div>
                                 </div>
-
-
-                                <div class="row">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Telefono Celular:</label>
@@ -365,11 +364,15 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="exampleFormControlInput1">Correo electrónico:</label>
-                                            @livewire('busqueda-correo', ['nombre' => 'ADMIN_CORREO'])
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Correo:</label>
+                                                <input name="SECRETARIA_CORREO" value="{{ old('SECRETARIA_CORREO') }}" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" maxlength="30" class="form-control form-control-sm" placeholder="Correo" required>
+                                                        {!! $errors->first(
+                                                         'SECRETARIA_CORREO',
+                                                           '<span class="alert-danger">:message</span><br>',
+                                                              ) !!}
+                                              </div></div>
                                     </div>
-                                </div>
 
 
 
