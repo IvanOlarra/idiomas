@@ -13,6 +13,7 @@ use Swift;
 
 class ControllerGrupo extends Controller
 {
+    public $id=0;
 
     public function mostgrupo()
     {
@@ -31,8 +32,7 @@ class ControllerGrupo extends Controller
 
         )->get();
         $selecplan = DB::table('planestudios')->get();
-        $selecmod = Modulo::select('ID_MODULO')->get();
-
+        $selecmod = DB::table('modulos')->get();
 
 
         return view('grupo', compact('selecgrup', 'selecplan', 'selecdocente', 'selecmod'));
@@ -40,31 +40,34 @@ class ControllerGrupo extends Controller
 
     public function agregagrupo(ValidaGrupo $informacion)
     {
+        $selecmodulo = DB::table('grupos')->get();
+        //llenar combo con los planes
+       foreach($selecmodulo as $modulo){
+        $this->id++;
+       }
+          $this->id++;
+          print_r($this->id++);
         DB::insert(
-            'INSERT INTO `grupos` 
-        (`ID_MODULO`, `GRUPO_TIPO`, `GRUPO_CLA`, `GRUPO_NUM_GRUPO`, `GRUPO_DES`, `GRUPO_NUM_ALUMNOS`, `GRUPO_LIMITE`,
-         `ID_DOCENTE`, `GRUPO_DIAS`, `GRUPO_HORAS`, `GRUPO_UBICACION`) 
-         VALUES (?,?,?,?,?,?,?,?,?,?)',
+            'INSERT INTO `grupos` (`ID_GRUPO`,`ID_MODULO`, `ID_DOCENTE`, `GRUPO_TIPO`, `GRUPO_CLA`, `GRUPO_NOM_GRUPO`, `GRUPO_DES`, `GRUPO_NUM_ALUMNOS`, `GRUPO_LIMITE`, `GRUPO_DIAS`, `GRUPO_HORAS`, `GRUPO_TOTAL_HORAS`, `GRUPO_UBICACION` ) 
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
             [
+                $this->id,
                 $informacion->ID_MODULO,
+                $informacion->ID_DOCENTE,
                 $informacion->GRUPO_TIPO,
                 $informacion->GRUPO_CLA,
-                $informacion->GRUPO_NUM_GRUPO,
+                $informacion->GRUPO_NOM_GRUPO,
                 $informacion->GRUPO_DES,
-                $informacion->GRUPO_NUM_ALUMNOS,
+                0,
                 $informacion->GRUPO_LIMITE,
-                $informacion->ID_DOCENTE,
-                $informacion->GRUPO_DIAS,
-                $informacion->GRUPO_HORAS,
+                'lunes',
+                $informacion->GRUPO_HORAS,  
+                $informacion->GRUPO_TOTAL_HORAS,
                 $informacion->GRUPO_UBICACION,
             ]
-
         );
 
-
-
-
-        return back();
+      return back();
     }
 
 

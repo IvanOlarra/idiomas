@@ -17,7 +17,7 @@
 
 
         @foreach ($selecmodulo as $informacion )
-        <form action="{{ route('update.modIficar-modulo', $informacion->ID_MODULO ) }}" method="POST">
+        <form action="{{ route('update.modificar-modulo', $informacion->ID_MODULO ) }}" method="POST">
             @method('PATCH')
             @csrf
             <div class="container">

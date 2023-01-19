@@ -117,13 +117,14 @@ class CreateGeneralsTable extends Migration
             $table->integer('ID_DOCENTE');
             $table->foreign('ID_DOCENTE')->references('ID_DOCENTE')->on('docentes')->onUpdate('restrict')->onDelete('restrict');
             $table->string('GRUPO_TIPO', 8);
-            $table->string('GRUPO_CLA', 6);
+            $table->string('GRUPO_CLA', 15);
             $table->string('GRUPO_NOM_GRUPO');
             $table->string('GRUPO_DES', 50);
             $table->integer('GRUPO_NUM_ALUMNOS');
             $table->integer('GRUPO_LIMITE');
             $table->string('GRUPO_DIAS', 30);
             $table->string('GRUPO_HORAS', 30);
+            $table->string('GRUPO_TOTAL_HORAS', 30);
             $table->string('GRUPO_UBICACION', 6);
         });
       

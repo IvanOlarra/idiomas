@@ -28,7 +28,7 @@ class ControllerModulo extends Controller
        foreach($selecmodulo as $modulo){
         $this->id++;
        }
-       echo($informacion->MODULO_NIVEL);
+       $this->id++;
         DB::insert(
 
             'INSERT INTO `modulos` (`ID_MODULO`, `RETICULA_NOMBRE`, `ID_PLANESTUDIO`, `MODULO_NIVEL` )
@@ -65,7 +65,6 @@ class ControllerModulo extends Controller
         $this->id++;
        }
         $selecplan = Planestudio::select('ID_PLANESTUDIO','PLAN_NOMBRE_IDIOMA')->get();
-
 
         return view('modulo', compact('selecmodulo', 'selecplan'));
     }

@@ -27,19 +27,22 @@ class ValidaGrupo extends FormRequest
         return [
 
 
-            'ID_GRUPO_NOMBRE' => 'required|max:30',
+            'GRUPO_NOMBRE_GRUPO' => 'required|max:30',
             'ID_PLANESTUDIO' => 'required|max:30',
             'ID_MODULO' => 'required|max:30',
-            'GRUPO_SEMESTRE' => 'required|numeric|min:1',
+            'GRUPO_LIMITE' => 'required',
             'GRUPO_TIPO' => 'required|max:30',
             'GRUPO_NUM_ALUMNOS' => 'required|min:1|numeric',
             'ID_DOCENTE' => 'required|max:30',
-            'GRUPO_ID_UBICACION' => 'required|max:30',
-            'GRUPO_DIA' => 'required|max:30',
-            'GRUPO_HORA_IN' => 'required',
-            'GRUPO_HORA_FIN' => 'required',
-            'GRUPO_HORA_TOTAL' => 'required|numeric|min:1',
-            'GRU_LIM' => 'required|min:1|numeric',
+            'GRUPO_UBICACION' => 'required|max:30',
+            'GRUPO_HORAS' => 'required',
+            'GRUPO_TOTAL_HORAS' => 'required|numeric|min:1',
+            
+
+        ];
+    }
+}
+ /**'GRU_LIM' => 'required|min:1|numeric',
             'GRU_HLU' => 'required|max:5',
             'GRU_ALU' => 'required|max:3',
             'GRU_HMA' => 'required|max:5',
@@ -52,8 +55,4 @@ class ValidaGrupo extends FormRequest
             'GRU_AVI' => 'required|max:3',
             'GRU_HSA' => 'required|max:3',
             'GRU_ASA' => 'required|max:3',
-            'GRU_DES' => 'required|max:50',
-
-        ];
-    }
-}
+            'GRU_DES' => 'required|max:50',*/

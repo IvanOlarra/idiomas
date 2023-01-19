@@ -20,17 +20,17 @@ class Grupo extends Model
 
     //Atributos de Grupo asignables en masa
     protected $fillable = [
-        'GRUPO_NOMBRE',
         'ID_MODULO',
+        'ID_DOCENTE',
         'GRUPO_TIPO',
         'GRUPO_CLA',
-        'GRUPO_NUM_GRUPO',
+        'GRUPO_NOM_GRUPO',
         'GRUPO_DES',
         'GRUPO_NUM_ALUMNOS',
         'GRUPO_LIMITE',
-        'ID_DOCENTE',
         'GRUPO_DIAS',
         'GRUPO_HORAS',
+        'GRUPO_TOTAL_HORAS',
         'GRUPO_UBICACION',
     ];
 

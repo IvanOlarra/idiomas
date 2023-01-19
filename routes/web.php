@@ -46,7 +46,7 @@ Route::post('/modulo', 'App\Http\Controllers\ControllerModulo@agregamodulo')->na
 Route::get('/modulo', 'App\Http\Controllers\ControllerModulo@mostmodulo')->name('modulo.actualizado')->middleware('permission:Admin|Secre');
 //Update
 Route::get('/update/modulo/{id_alu}', 'App\Http\Controllers\ControllerModulo@edit')->name('update.mostmodulo_modificar')->middleware('permission:Admin|Secre');
-Route::patch('/update/modulo/{id_alu}', 'App\Http\Controllers\ControllerModulo@modificarmodulo')->name('update.modIficar-modulo')->middleware('permission:Admin|Secre');
+Route::patch('/update/modulo/{id_alu}', 'App\Http\Controllers\ControllerModulo@modificarmodulo')->name('update.modificar-modulo')->middleware('permission:Admin|Secre');
 //Delete
 Route::get('/modulo/{id_alu}', 'App\Http\Controllers\ControllerModulo@eliminarmodulo')->name('delete.modulo_eliminar')->middleware('permission:Admin|Secre');
 

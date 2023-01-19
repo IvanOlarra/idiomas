@@ -151,9 +151,9 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Modulo:</label>
                                                 <select name="ID_MODULO" class="form-control form-control-sm"
-                                                    id="exampleFormControlSelect1" required>
-                                                    <?php foreach ($selecmod as $item) {?>
-                                                    <option><?php echo $item->ID_MODULO; ?> </option>
+                                                    id="exampleFormControlSelect1" required value="{{ old('ID_MODULO') }}">
+                                                    <?php foreach ($selecmod as $item){?>
+                                                    <option value="{{$item->ID_MODULO}}"><?php echo $item->RETICULA_NOMBRE;  ?> </option>
                                                     <?php
                                                             }//cierro el foreach
                                                             ?>
@@ -168,7 +168,7 @@
                                                     id="exampleFormControlSelect1" required>
 
                                                     <option value="SEMANA">Semanal</option>
-                                                    <option value="SABATI">Sabatino</option>
+                                                    <option value="SABATINO">Sabatino</option>
 
                                                 </select>
                                             </div>
@@ -193,56 +193,7 @@
 
 
                                     <div class="row">
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Semestre:</label>
-                                                <input type="tel" name="GRUPO_SEMESTRE"
-                                                    value="{{ old('GRUPO_SEMESTRE') }}" pattern="[0-9]{1,11}"
-                                                    maxlength="11" class="form-control form-control-sm"
-                                                    placeholder="Semestre" required>
-                                                {!! $errors->first('GRUPO_SEMESTRE', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Tipo:</label>
-                                                <input type="text" name="GRUPO_TIPO" value="{{ old('GRUPO_TIPO') }}"
-                                                    pattern="[A-Za-z]{1,30}" maxlength="30"
-                                                    class="form-control form-control-sm" placeholder="Tipo Letras" required>
-                                                {!! $errors->first('GRUPO_TIPO', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm">
-
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Numero de Alumnos:</label>
-                                                <input type="tel" name="GRUPO_NUM_ALUMNOS"
-                                                    value="{{ old('GRUPO_NUM_ALUMNOS') }}" pattern="[0-9]{1,11}"
-                                                    maxlength="11" class="form-control form-control-sm"
-                                                    placeholder="Numero de Alumnos" required>
-                                                {!! $errors->first('GRUPO_NUM_ALUMNOS', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Dia:</label>
-                                                <input type="date" name="GRUPO_DIA" class="form-control form-control-sm"
-                                                    placeholder="Dia" required>
-                                                {!! $errors->first('GRUPO_DIA', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Docente :</label>
@@ -266,30 +217,41 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Nombre Grupo:</label>
+                                                <input type="tel" name="GRUPO_NOM_GRUPO" value="{{ old('GRUPO_NOM_GRUPO') }}"
+                                                     class="form-control form-control-sm"
+                                                    placeholder="" required>
+                                                {!! $errors->first('GRUPO_NOM_GRUPO', '<span class="alert-danger">:message</span><br>') !!}
+
+                                            </div>
+                                        </div>
                                     </div>
 
 
                                     <div class="row">
                                         <div class="col-sm">
                                             <div class="form-group">
-                                                <label for="exampleFormControlInput1">LIM:</label>
-                                                <input type="tel" name="GRU_LIM" value="{{ old('GRU_LIM') }}"
-                                                    pattern="[0-9]{1,4}" maxlength="4" class="form-control form-control-sm"
-                                                    placeholder="LIM Numeros" required>
-                                                {!! $errors->first('GRU_LIM', '<span class="alert-danger">:message</span><br>') !!}
+                                                <label for="exampleFormControlInput1">Limite Alumnos:</label>
+                                                <input type="number" name="GRUPO_LIMITE" value="{{ old('GRUPO_LIMITE') }}"
+                                                     maxlength="4" class="form-control form-control-sm"
+                                                    placeholder="Limite de Alumnos" required>
+                                                {!! $errors->first('GRUPO_LIMITE', '<span class="alert-danger">:message</span><br>') !!}
 
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <div class="form-group">
-                                                <label for="exampleFormControlInput1">HLU:</label>
-                                                <input type="text" name="GRU_HLU" value="{{ old('GRU_HLU') }}"
-                                                    pattern="[A-Za-z]{1,5}" maxlength="5"
-                                                    class="form-control form-control-sm" placeholder="HLU Letras" required>
-                                                {!! $errors->first('GRU_HLU', '<span class="alert-danger">:message</span><br>') !!}
+                                                <label for="exampleFormControlInput1">Aula Asignada:</label>
+                                                <input type="text" name="GRUPO_UBICACION" value="{{ old('GRUPO_UBICACION') }}"
+                                                     maxlength="5"
+                                                    class="form-control form-control-sm" placeholder="Aula" required>
+                                                {!! $errors->first('GRUPO_UBICACION', '<span class="alert-danger">:message</span><br>') !!}
 
                                             </div>
                                         </div>
+                        
                                     </div>
 
 
@@ -298,34 +260,31 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Hora de Inicio:</label>
-                                                <input type="time" name="GRUPO_HORA_IN" class="form-control form-control-sm"
+                                                <input type="text" placeholder="Ejem: 10:00 - 15:00" name="GRUPO_HORAS" class="form-control form-control-sm"
                                                     placeholder="Inicio" required>
-                                                {!! $errors->first('GRUPO_HORA_IN', '<span class="alert-danger">:message</span><br>') !!}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Hora Terminacion:</label>
-                                                <input type="time" name="GRUPO_HORA_FIN"
-                                                    class="form-control form-control-sm" placeholder="Termino">
-                                                {!! $errors->first('GRUPO_HORA_FIN', '<span class="alert-danger">:message</span><br>') !!}
+                                                {!! $errors->first('GRUPO_HORAS', '<span class="alert-danger">:message</span><br>') !!}
 
                                             </div>
                                         </div>
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Total horas:</label>
-                                                <input type="tel" name="GRUPO_HORA_TOTAL"
-                                                    value="{{ old('GRUPO_HORA_TOTAL') }}" pattern="[0-9]{1,11}"
+                                                <input type="text" name="GRUPO_TOTAL_HORAS"
+                                                    value="{{ old('GRUPO_TOTAL_HORAS') }}" 
                                                     maxlength="11" class="form-control form-control-sm"
                                                     placeholder="Total Horas" required>
-                                                {!! $errors->first('GRUPO_HORA_TOTAL', '<span class="alert-danger">:message</span><br>') !!}
+                                                {!! $errors->first('GRUPO_TOTAL_HORAS', '<span class="alert-danger">:message</span><br>') !!}
 
                                             </div>
                                         </div>
                                     </div>
-
+                                     <div class="row">
+                                        <div class="col-sm">
+                                                <textarea  class="form-control" name="GRUPO_DES" maxlength="500" id="exampleFormControlTextarea1"></textarea>
+                                                
+                                        </div>
+                                       
+                                     </div>
 
 
 
@@ -336,7 +295,7 @@
 
                             </div>
 
-                            <!--Columna 2-->
+                            <!--Columna 2
                             <div class="col-sm">
                                 <div class="col-sm">
 
@@ -492,7 +451,7 @@
 
 
                                 </div>
-                            </div>
+                            </div>-->
 
                         </div>
 
