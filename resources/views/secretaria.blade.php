@@ -148,15 +148,7 @@
                         <div class="col-sm">
 
                             <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">ID:</label>
-                                        <input type="text" name="ID_ADMIN" value="{{ old('ID_ADMIN') }}"
-                                            pattern="[A-Zz-a]{1,10}" class="form-control form-control-sm" maxlength="10"
-                                            placeholder="ID" required>
-                                        {!! $errors->first('ID_ADMIN', '<span class="alert-danger">:message</span><br>') !!}
-                                    </div>
-                                </div>
+                                
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Clave:</label>
@@ -366,9 +358,9 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Correo:</label>
-                                                <input name="SECRETARIA_CORREO" value="{{ old('SECRETARIA_CORREO') }}" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" maxlength="30" class="form-control form-control-sm" placeholder="Correo" required>
+                                                <input name="ADMIN_CORREO" value="{{ old('ADMIN_CORREO') }}" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" maxlength="30" class="form-control form-control-sm" placeholder="Correo" required>
                                                         {!! $errors->first(
-                                                         'SECRETARIA_CORREO',
+                                                         'ADMIN_CORREO',
                                                            '<span class="alert-danger">:message</span><br>',
                                                               ) !!}
                                               </div></div>

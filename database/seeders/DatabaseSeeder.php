@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cierre;
 use Illuminate\Database\Seeder;
 
 

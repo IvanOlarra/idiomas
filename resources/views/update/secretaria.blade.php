@@ -54,15 +54,7 @@
                         <div class="col-sm">
 
                             <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">ID:</label>
-                                        <input type="text" value="{{ $informacion->ID_SECRETARIAL }}" name="ID_SECRETARIAL"
-                                            pattern="[A-Zz-a]{1,10}" class="form-control form-control-sm" maxlength="10"
-                                            placeholder="ID" required>
-                                        {!! $errors->first('ID_ADMIN', '<span class="alert-danger">:message</span><br>') !!}
-                                    </div>
-                                </div>
+                               
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Clave:</label>
@@ -184,12 +176,7 @@
                                     </div>
                                 </div>
 
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="col">
+                                <div class="col-sm">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Estado:</label>
                                         <select class="form-control form-control-sm" name="ADMIN_ESTADO"
@@ -231,18 +218,21 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Municipio:</label>
-                                        <input type="text" class="form-control form-control-sm" maxlength="30"
-                                            name="ADMIN_MUNICIPIO" value="{{ $informacion->SECRETARIA_MUNICIPIO }}"
-                                            pattern="[a-zZ-A]{1,30}" placeholder="Municipio" required>
-                                        {!! $errors->first('ADMIN_MUNICIPIO', '<span class="alert-danger">:message</span><br>') !!}
-                                    </div>
-                                </div>
+
+                            </div>
 
 
                                 <div class="row">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Municipio:</label>
+                                            <input type="text" class="form-control form-control-sm" maxlength="30"
+                                                name="ADMIN_MUNICIPIO" value="{{ $informacion->SECRETARIA_MUNICIPIO }}"
+                                                pattern="[a-zZ-A]{1,30}" placeholder="Municipio" required>
+                                            {!! $errors->first('ADMIN_MUNICIPIO', '<span class="alert-danger">:message</span><br>') !!}
+                                        </div>
+                                    </div>
+
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Telefono Celular:</label>
@@ -264,18 +254,13 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="exampleFormControlInput1">Email address</label>
+                                            <label for="exampleFormControlInput1">Correo:</label>
                                             <input maxlength="30" type="text" class="form-control" value="{{ $correo }}" id="exampleFormControlInput1"
                                                 placeholder="name@example.com" disabled>
                                             {!! $errors->first('ADMIN_CORREO', '<span class="alert-danger">:message</span><br>') !!}
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-                            </div>
 
 
                             <div class="row">

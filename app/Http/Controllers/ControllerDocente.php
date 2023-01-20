@@ -15,30 +15,22 @@ class ControllerDocente extends Controller
         //para llenar tabla
 
         $selecdocente = DB::table('docentes')
-            ->join('users',  'users.id', '=', 'docentes.DOCENTE_CORREO')
+            ->join('users',  'users.email', '=', 'docentes.DOCENTE_CORREO')
             ->select('users.*', 'docentes.*')->get();
 
 
-
-
-
         return view('docente', compact('selecdocente'));
-    }
+    }   
 
-    public function agregadocente(ValidaDocente $informacion)
+    public function agregadocente(Request $informacion)
     {
-        $validar = new validar();
-
-        //Condicion de mensaje para informar sin el Id ya esta registrada en otro usuario
-        if ($validar->iddocente($informacion) > 0) {
-            session()->flash('errorid', 'El ID ingresado ya Existe');
-            return back();
-        } else {
-            //Condicion de mensaje para informar si el Correo ya esta registrado en otro usuario
-            if ($validar->emaildocente($informacion) > 0) {
-                session()->flash('erroremail', 'El Correo Electronico ingresado ya esta registrado a un usuario');
-                return back();
-            } else {
+        
+                 $id=1;
+                 $docentes=DB::table('docentes')->get();
+                 foreach( $docentes as $d){
+                    $id++;
+                 }
+      
                 DB::insert(
                     'INSERT INTO `docentes` (
                     `ID_DOCENTE`, `DOCENTE_CLAVE`, `DOCENTE_AP_PAT`, `DOCENTE_AP_MAT`, `DOCENTE_NOMBRE`, `DOCENTE_SEXO`, `DOCENTE_TIPO_SANGRE`,
@@ -46,7 +38,7 @@ class ControllerDocente extends Controller
                      `DOCENTE_CORREO`, `DOCENTE_GRADO_ESCOLAR`, `DOCENTE_ESPECIALIDAD`, `DOCENTE_FECHA_ING`, `DOCENTE_OBSERVACIONES`)
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                     [
-                        $informacion->ID_DOCENTE,
+                        $id,
                         $informacion->DOCENTE_CLAVE,
                         $informacion->DOCENTE_AP_PAT,
                         $informacion->DOCENTE_AP_MAT,
@@ -69,15 +61,21 @@ class ControllerDocente extends Controller
 
                 );
 
-                $user = User::find($informacion->DOCENTE_CORREO);
-                $user->syncRoles(['Docente']);
-            }
+                $contraseña= bcrypt(strtolower(substr($informacion->DOCENTE_NOMBRE,0,1).$informacion->DOCENTE_AP_PAT));
+
+                User::create([
+                    'name' => $informacion->DOCENTE_NOMBRE." ".$informacion->ALUMNO_APELLIDO_PAT,
+                    'email' => $informacion->DOCENTE_CORREO,
+                    'password' => $contraseña,
+                ])->assignRole('Docente');
+                return back();
+            
         }
 
 
 
-        return back();
-    }
+        
+    
 
 
     //dif
@@ -88,8 +86,7 @@ class ControllerDocente extends Controller
 
         $selecdocente = Docente::where('ID_DOCENTE', $id)->get();
 
-        $correo = User::where('id', $selecdocente[0]->DOCENTE_CORREO)->get('email')->first()->email;
-
+        $correo = User::where('email', $selecdocente[0]->DOCENTE_CORREO)->get('email')->first()->email;
 
         return view('update/docente', compact('selecdocente', 'correo'));
     }
@@ -125,7 +122,6 @@ class ControllerDocente extends Controller
 
 
         $selecalum = DB::table('docentes')->where('ID_DOCENTE', $id)->update([
-            'ID_DOCENTE' => $informacion->ID_DOCENTE,
             'DOCENTE_CLAVE' =>  $informacion->DOCENTE_CLAVE,
             'DOCENTE_AP_PAT' =>  $informacion->DOCENTE_AP_PAT,
             'DOCENTE_AP_MAT' =>  $informacion->DOCENTE_AP_MAT,
@@ -160,11 +156,11 @@ class ControllerDocente extends Controller
     public function eliminardocente($id)
     {
         //eliminamos el docente
-        $id_user = DB::table('docentes')->join('users', 'users.id', '=', 'docentes.DOCENTE_CORREO')->where('ID_DOCENTE', '=', $id)->first('users.id');
-
-        $user = User::find($id_user->id);
-        $user->syncRoles(['Alum']);
+        $id_user = DB::table('docentes')->join('users', 'users.email', '=', 'docentes.DOCENTE_CORREO')->where('ID_DOCENTE', '=', $id)->first('DOCENTE_CORREO');
+        DB::table('users')->where('email', '=', $id_user->DOCENTE_CORREO)->delete();
+        //Eliminamos la informacion de la Id mandada
         DB::table('docentes')->where('ID_DOCENTE', '=', $id)->delete();
+      
 
 
 

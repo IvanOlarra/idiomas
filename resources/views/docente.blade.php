@@ -153,15 +153,6 @@
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">ID:</label>
-                  <input type="text" name="ID_DOCENTE" value="{{ old('ID_DOCENTE') }}" pattern="[A-Zz-a]{1,6}"
-                    class="form-control form-control-sm" maxlength="6" placeholder="ID" required>
-                  {!! $errors->first('ID_DOCENTE','<span class="alert-danger">:message</span><br>')
-                  !!}
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="form-group">
                   <label for="exampleFormControlInput1">Clave:</label>
                   <input type="text" name="DOCENTE_CLAVE" value="{{ old('DOCENTE_CLAVE') }}"
                     class="form-control form-control-sm" maxlength="30" placeholder="Clave" required>
@@ -177,7 +168,7 @@
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nombre:</label>
                   <input type="text" name="DOCENTE_NOMBRE" value="{{ old('DOCENTE_NOMBRE') }}"
-                    class="form-control form-control-sm" pattern="[a-zZ-A]{1,30}" maxlength="30" placeholder="Nombre"
+                    class="form-control form-control-sm"  maxlength="30" placeholder="Nombre"
                     required>
                   {!! $errors->first('DOCENTE_NOMBRE','<span class="alert-danger">:message</span><br>')
                   !!}
@@ -187,7 +178,7 @@
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Paterno:</label>
                   <input type="text" name="DOCENTE_AP_PAT" value="{{ old('DOCENTE_AP_PAT') }}"
-                    class="form-control form-control-sm" pattern="[a-zZ-A]{1,30}" maxlength="30"
+                    class="form-control form-control-sm"  maxlength="30"
                     placeholder="Apellido Paterno" required>
                   {!! $errors->first('DOCENTE_AP_PAT','<span class="alert-danger">:message</span><br>')
                   !!}
@@ -197,7 +188,7 @@
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Materno:</label>
                   <input type="text" name="DOCENTE_AP_MAT" value="{{ old('DOCENTE_AP_MAT') }}"
-                    class="form-control form-control-sm" pattern="[a-zZ-A]{1,30}" maxlength="30"
+                    class="form-control form-control-sm"  maxlength="30"
                     placeholder="Apellido Materno">
                   {!! $errors->first('DOCENTE_AP_MAT','<span class="alert-danger">:message</span><br>')
                   !!}
@@ -333,7 +324,7 @@
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Municipio:</label>
                   <input type="text" class="form-control form-control-sm" maxlength="30" name="DOCENTE_MUNICIPIO"
-                    value="{{ old('DOCENTE_MUNICIPIO') }}" pattern="[a-zZ-A]{1,30}" placeholder="Municipio" required>
+                    value="{{ old('DOCENTE_MUNICIPIO') }}"  placeholder="Municipio" required>
                   {!! $errors->first('DOCENTE_MUNICIPIO','<span class="alert-danger">:message</span><br>')
                   !!}
                 </div>
@@ -397,7 +388,7 @@
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Especialidad:</label>
                   <input type="text" class="form-control form-control-sm" name="DOCENTE_ESPECIALIDAD"
-                    value="{{ old('DOCENTE_ESPECIALIDAD') }}" pattern="[a-zZ-A]{1,30}" maxlength="30"
+                    value="{{ old('DOCENTE_ESPECIALIDAD') }}"  maxlength="30"
                     placeholder="Especialidad">
                   {!! $errors->first('DOCENTE_ESPECIALIDAD','<span class="alert-danger">:message</span><br>')
                   !!}

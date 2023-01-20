@@ -53,15 +53,7 @@
                         <div class="col-sm">
 
                             <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">ID:</label>
-                                        <input type="text" name="ID_DOCENTE" value="{{ $informacion->ID_DOCENTE }}" name="ID_DOCENTE"
-                                            pattern="[A-Zz-a]{1,6}" class="form-control form-control-sm" maxlength="6"
-                                            placeholder="ID" required>
-                                        {!! $errors->first('ID_DOCENTE', '<span class="alert-danger">:message</span><br>') !!}
-                                    </div>
-                                </div>
+
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Clave:</label>
@@ -183,12 +175,6 @@
                                         {!! $errors->first('DOCENTE_COLONIA', '<span class="alert-danger">:message</span><br>') !!}
                                     </div>
                                 </div>
-
-                            </div>
-
-
-
-                            <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Estado:</label>
@@ -231,18 +217,19 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Municipio:</label>
-                                        <input type="text" class="form-control form-control-sm" maxlength="30"
-                                            name="DOCENTE_MUNICIPIO" value="{{ $informacion->DOCENTE_MUNICIPIO }}"
-                                            pattern="[a-zZ-A]{1,30}" placeholder="Municipio" required>
-                                        {!! $errors->first('DOCENTE_MUNICIPIO', '<span class="alert-danger">:message</span><br>') !!}
-                                    </div>
-                                </div>
 
+                            </div>
 
                                 <div class="row">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Municipio:</label>
+                                            <input type="text" class="form-control form-control-sm" maxlength="30"
+                                                name="DOCENTE_MUNICIPIO" value="{{ $informacion->DOCENTE_MUNICIPIO }}"
+                                                pattern="[a-zZ-A]{1,30}" placeholder="Municipio" required>
+                                            {!! $errors->first('DOCENTE_MUNICIPIO', '<span class="alert-danger">:message</span><br>') !!}
+                                        </div>
+                                    </div>
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Telefono Celular:</label>
@@ -263,7 +250,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="exampleFormControlInput1">Email address</label>
+                                            <label for="exampleFormControlInput1">Correo:</label>
 
                                             <input maxlength="30" type="text" class="form-control"
                                                 value="{{ $correo }}" id="exampleFormControlInput1"
@@ -277,9 +264,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-                            </div>
 
 
                             <div class="row">

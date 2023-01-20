@@ -29,12 +29,11 @@ class CreateGeneralsTable extends Migration
             $table->string('SECRETARIA_ESTADO', 30);
             $table->string('SECRETARIA_MOVIL', 30)->nullable();
             $table->string('SECRETARIA_CASA', 30)->nullable();
-            $table->unsignedBigInteger('SECRETARIA_CORREO')->unique();
-            $table->foreign('SECRETARIA_CORREO')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
+            $table->string('SECRETARIA_CORREO');
             $table->string('SECRETARIA_CLAVE_PROFESIONAL', 30)->nullable();
             $table->string('SECRETARIA_ESPECIALIDAD', 30)->nullable();
             $table->date('SECRETARIA_FECHA_ING');
-            $table->string('SECRETARIA_OBSERVACIONES', 500);
+            $table->string('SECRETARIA_OBSERVACIONES', 500)->nullable();
         });
 
      
@@ -78,11 +77,11 @@ class CreateGeneralsTable extends Migration
             $table->string('DOCENTE_ESTADO', 30);
             $table->string('DOCENTE_MOVIL', 30)->nullable();
             $table->string('DOCENTE_CASA', 30)->nullable();
-            $table->foreignId('DOCENTE_CORREO')->references('id')->on('users')->onUpdate('restrict')->onDelete('restrict')->unique();
+            $table->string('DOCENTE_CORREO');
             $table->string('DOCENTE_GRADO_ESCOLAR', 30)->nullable();
             $table->string('DOCENTE_ESPECIALIDAD', 30)->nullable();
             $table->date('DOCENTE_FECHA_ING');
-            $table->string('DOCENTE_OBSERVACIONES', 500);
+            $table->string('DOCENTE_OBSERVACIONES', 500)->nullable();
         });
 
         // NIVEL 1

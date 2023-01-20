@@ -24,7 +24,7 @@ class ControllerSecretaria extends Controller
         //para llenar tabla
 
         $selecadmin = DB::table('secretarias')
-            ->join('users',  'users.id', '=', 'secretarias.SECRETARIA_CORREO')
+            ->join('users',  'users.email', '=', 'secretarias.SECRETARIA_CORREO')
             ->select('users.*', 'secretarias.*')->get();
 
 
@@ -33,25 +33,15 @@ class ControllerSecretaria extends Controller
         return view('secretaria', compact('selecadmin'));
     }
 
-    public function agregasecre(ValidaSecre $informacion)
+    public function agregasecre(Request $informacion)
     {
 
-        $validar = new validar();
-
-        if ($validar->idsecre($informacion)) {
-
-            session()->flash('errorid', 'El ID ingresado ya Existe');
-            return back();
-        } else {
-
-
-
-            if ($validar->emailsecre($informacion)) {
-
-                session()->flash('erroremail', 'El Correo Electronico ingresado ya esta registrado a un usuario');
-                return back();
-            } else {
-
+        $id=1;
+        $docentes=DB::table('secretarias')->get();
+        foreach( $docentes as $d){
+           $id++;
+        }
+     
                 DB::insert(
 
                     'INSERT INTO `secretarias` 
@@ -61,7 +51,7 @@ class ControllerSecretaria extends Controller
             `SECRETARIA_ESPECIALIDAD`, `SECRETARIA_FECHA_ING`, `SECRETARIA_OBSERVACIONES`)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                     [
-                        $informacion->ID_ADMIN,
+                        $id,
                         $informacion->ADMIN_CLAVE,
                         $informacion->ADMIN_AP_PAT,
                         $informacion->ADMIN_AP_MAT,
@@ -86,21 +76,23 @@ class ControllerSecretaria extends Controller
 
                 );
 
-                $user = User::find($informacion->ADMIN_CORREO);
-                $user->syncRoles(['Secre']);
+                $contraseña= bcrypt(strtolower(substr($informacion->ADMIN_NOMBRE,0,1).$informacion->ADMIN_AP_PAT));
 
+                User::create([
+                    'name' => $informacion->ADMIN_NOMBRE." ".$informacion->ADMIN_AP_PAT,
+                    'email' => $informacion->ADMIN_CORREO,
+                    'password' => $contraseña,
+                ])->assignRole('Docente');
                 return back();
             }
-        }
-    }
-
+        
     public function edit($id)
     {
 
 
         //Nos manda el Id a modificar para poder seleccionar su informacion y mandar a nueva ventana
         $selecadmin = Secretaria::where('ID_SECRETARIAL', $id)->get();
-        $correo = User::where('id', $selecadmin[0]->SECRETARIA_CORREO)->get('email')->first()->email;
+        $correo = User::where('email', $selecadmin[0]->SECRETARIA_CORREO)->get('email')->first()->email;
 
 
         return view('update/secretaria', compact('selecadmin', 'correo'));
@@ -168,10 +160,9 @@ class ControllerSecretaria extends Controller
 
     public function eliminarsecre($id)
     {
-        $id_user = DB::table('secretarias')->join('users', 'users.id', '=', 'secretarias.SECRETARIA_CORREO')->where('ID_SECRETARIAL', '=', $id)->first('users.id');
-        $user = User::find($id_user->id);
-        $user->syncRoles(['Alum']);
-
+        $id_user = DB::table('secretarias')->join('users', 'users.email', '=', 'secretarias.SECRETARIA_CORREO')->where('ID_SECRETARIAL', '=', $id)->first('SECRETARIA_CORREO');
+        
+        DB::table('users')->where('email', '=', $id_user->SECRETARIA_CORREO)->delete();
         //Eliminamos la informacion de la Id mandada
         DB::table('secretarias')->where('ID_SECRETARIAL', '=', $id)->delete();
 
