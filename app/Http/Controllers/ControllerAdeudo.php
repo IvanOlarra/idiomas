@@ -90,9 +90,8 @@ class ControllerAdeudo extends Controller
                 'alumnos.*',
                 'adeudos.*',
 
-
             )
-            ->where('adeudos.ID_ALUMNO', $id)->get();
+            ->where('adeudos.ID_ADEUDO', $id)->get();
 
         return view('update/adeudo', compact('selecadeudo'));
     }
