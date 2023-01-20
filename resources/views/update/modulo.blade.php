@@ -9,7 +9,7 @@
     <div class="modal-content">
 
         <div class="modal-header">
-            <h5 class="modal-title">Agregar Modulo</h5>
+            <h5 class="modal-title">Editar Modulo</h5>
 
 
 
@@ -45,6 +45,21 @@
                             {!! $errors->first('RET_NOM','<span class="alert-danger">:message</span><br>')
                             !!}
 
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nivel del Modulo:</label>
+                            <?php
+                                            $cont = 13;
+                                            ?>
+                            <select name="MODULO_NIVEL" value='{{$informacion->MODULO_NIVEL}}' class="form-control form-control-sm">
+                                <option>{{ $informacion->MODULO_NIVEL }}</option>
+                                <?php while ($cont >= 0) { ?>
+                                <option value="<?php echo($cont); ?>">
+                                    <?php echo($cont); ?>
+                                </option>
+                                <?php $cont = ($cont-1); } ?>
+                            </select>
+                            {!! $errors->first('MODULO_NIVEL','<span class="alert-danger">:message</span><br>') !!}
                         </div>
 
                         <div class="form-group">

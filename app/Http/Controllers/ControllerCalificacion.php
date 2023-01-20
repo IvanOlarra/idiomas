@@ -22,9 +22,9 @@ class ControllerCalificacion extends Controller
 
         if (Auth::user()->getRoleNames()[0] === 'Docente') {
 
-            $idDocente = Docente::where('DOCENTE_CORREO', Auth::user()->id)->get('ID_DOCENTE')->first();
+            $idDocente = Docente::where('DOCENTE_CORREO', Auth::user()->email)->get('ID_DOCENTE')->first();
 
-            $listaGrupos = Grupo::where('ID_DOCENTE', $idDocente->ID_DOCENTE)->get('ID_GRUPO');
+            $listaGrupos = Grupo::where('ID_DOCENTE', $idDocente->ID_DOCENTE)->get();
         } else if (Auth::user()->getRoleNames()[0] === 'Admin') {
             $listaGrupos = Grupo::all();
         } else {

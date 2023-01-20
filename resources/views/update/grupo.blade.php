@@ -131,7 +131,7 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Dias:</label>
-                                        <input type="tel" name="GRUPO_DIAS"  maxlength="20"
+                                        <input type="tel" name="GRUPO_DIAS"  maxlength="25"
                                             class="form-control form-control-sm" placeholder="Dia"
                                             value="{{ $informacion->GRUPO_DIAS }}" required>
                                         {!! $errors->first('GRUPO_DIAS','<span class="alert-danger">:message</span><br>')

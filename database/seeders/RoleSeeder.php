@@ -35,7 +35,7 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'calificacion'])->syncRoles([$roldocente, $rolalum]);
         Permission::create(['name' => 'adeudo'])->syncRoles([$rolsecre, $roladmin]);
-        Permission::create(['name' => 'cardex2'])->syncRoles([$rolalum, $roldocente,$rolsecre]);
+        Permission::create(['name' => 'cardex2'])->syncRoles([$rolalum]);
         Permission::create(['name' => 'servicios'])->syncRoles([$roladmin, $rolsecre]);
         Permission::create(['name' => 'lv1ylv2'])->syncRoles([$roladmin, $rolsecre]);
         Permission::create(['name' => 'lv3'])->syncRoles([$rolsecre, $rolalum]);

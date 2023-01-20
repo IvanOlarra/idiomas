@@ -88,7 +88,7 @@ Route::get('/alumnos/{id_alu}', 'App\Http\Controllers\ControllerAlumno@eliminara
 //C
 Route::get('/calificaciones/modificar/{grupo?}', [ControllerCalificacion::class, 'modificarCalificacion'])->name('modificar.calificaciones')->middleware('permission:Admin|Docente');
 Route::get('/calificaciones/grupo', [ControllerCalificacion::class, 'mostcalificacion'])->name('calificaciones');
-Route::get('/mis_calificaciones', [ControllerCalificacion::class, 'mostcalificacionalum'])->name('calificaciones');
+Route::get('/mis_calificaciones', [ControllerCalificacion::class, 'mostcalificacionalum'])->name('calificaciones')->middleware('permission:Alum');
 
 
 //      PERIODOS

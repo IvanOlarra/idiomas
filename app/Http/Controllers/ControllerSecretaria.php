@@ -82,7 +82,7 @@ class ControllerSecretaria extends Controller
                     'name' => $informacion->ADMIN_NOMBRE." ".$informacion->ADMIN_AP_PAT,
                     'email' => $informacion->ADMIN_CORREO,
                     'password' => $contraseña,
-                ])->assignRole('Docente');
+                ])->assignRole('Secre');
                 return back();
             }
         

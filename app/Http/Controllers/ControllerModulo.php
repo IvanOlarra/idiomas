@@ -83,6 +83,7 @@ class ControllerModulo extends Controller
             'modulos.ID_MODULO',
             'modulos.RETICULA_NOMBRE',
             'modulos.ID_PLANESTUDIO',
+            'modulos.MODULO_NIVEL',
             'planestudios.PLAN_NOMBRE_IDIOMA'
 
         )->
@@ -105,7 +106,7 @@ class ControllerModulo extends Controller
 
             'RETICULA_NOMBRE' => $informacion->RETICULA_NOMBRE,
             'ID_PLANESTUDIO' => $informacion->ID_PLANESTUDIO,
-
+            'MODULO_NIVEL' => $informacion->MODULO_NIVEL
 
 
         ]);

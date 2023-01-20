@@ -220,7 +220,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Dias:</label>
-                                                <input type="tel" name="GRUPO_DIAS" value="{{ old('GRUPO_DIAS') }}" maxlength="11"
+                                                <input type="tel" name="GRUPO_DIAS" value="{{ old('GRUPO_DIAS') }}" maxlength="25"
                                                     class="form-control form-control-sm" placeholder="Ejem: LUNES-VIERNES"
                                                      required>
                                                 {!! $errors->first('GRUPO_DIAS','<span class="alert-danger">:message</span><br>')
