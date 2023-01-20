@@ -59,8 +59,8 @@
                                 value="{{  $informacion->ADEUDO_FECHA }}" id="example-date-input">
                         </div>
                         <div class="form-row mb-3">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="ADEUDO_DESCRIPCION" value="{{  $informacion->ADEUDO_DESCRIPCION }}" maxlength="500"
-                                        rows="3" placeholder="Observaciones"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="ADEUDO_DESCRIPCION" maxlength="500"
+                                        rows="3" placeholder="Observaciones">{{  $informacion->ADEUDO_DESCRIPCION }}</textarea>
                             </div>
                     </div>
                     @endforeach
