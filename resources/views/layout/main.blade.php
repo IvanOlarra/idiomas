@@ -75,7 +75,7 @@
 
                             @can('inscripcion')
                                 <a class="dropdown-item {{ Route::currentRouteName() === 'inscripcion.actualizado' ? 'active' : '' }}"
-                                    href="{{ route('inscripcion.actualizado') }}">Inscripción</a>
+                                    href="{{ route('inscripcion.actualizado') }}">Inscripcion</a>
                             @endcan
 
                             @can('adeudo')

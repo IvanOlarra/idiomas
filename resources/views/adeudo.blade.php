@@ -16,11 +16,7 @@
 
 
     </ul>
-    <div align="right">
-        <input class=" me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </div>
-
+    
 
 </div>
 
@@ -33,7 +29,7 @@
 <!--Table-->
 <div class="container">
 
-    <table class="table table-hover table-bordered ">
+    <table id="example" class="table table-hover table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th>Alumno</th>
@@ -283,8 +279,10 @@
 </div>
 
 
+<script>
 
 
+</script>
 
 
 <!--FINAL  CUADRO SALIDA AGREGAR ADEUDO->
