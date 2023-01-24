@@ -95,42 +95,5 @@ class ControllerColocacion extends Controller{
              ]);
          
     }
-    public function ultimoModuloCursado($listaCalificaciones){
-        
-        $modulo=0;
-        if($listaCalificaciones->CARDEX_CALIF_MOD1==0){
-            return $modulo=1;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD2==0){
-            return $modulo=2;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD3==0){
-            return $modulo=3;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD4==0){
-            return $modulo=4;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD5==0){
-            return $modulo=5;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD6==0){
-            return $modulo=6;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD7==0){
-            return $modulo=7;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD8==0){
-            return $modulo=8;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD9==0){
-            return $modulo=9;
-         }elseif($listaCalificaciones->CARDEX_CALIF_MOD10==0){
-            return $modulo=10;
-         }
-            
-
-    }
-
-    public function validarModulo($idPlan, $idAlumno){
-        if(Cardex::where('ID_ALUMNO',$idAlumno)->where('ID_PLANESTUDIO',$idPlan)->exists()){
-            $cardex=Cardex::where('ID_ALUMNO',$idAlumno)->where('ID_PLANESTUDIO',$idPlan)->first();
-            $this->inscribiendo['cardex']=true;
-            return $this->ultimoModuloCursado($cardex);
-        }else{
-            $this->inscribiendo['cardex']=false;
-            return 1;
-        }
-    }
+    
 }
