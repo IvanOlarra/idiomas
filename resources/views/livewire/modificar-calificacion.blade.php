@@ -46,10 +46,8 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Matricula</th>
-                        <th scope="col">Unidad 1</th>
-                        <th scope="col">Unidad 2</th>
-                        <th scope="col">Unidad 3</th>
-                        <th scope="col">Unidad 4</th>
+                        <th scope="col">Parcial 1</th>
+                        <th scope="col">Parcial 2</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>

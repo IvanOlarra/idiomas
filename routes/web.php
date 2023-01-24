@@ -124,8 +124,10 @@ Route::get('/cardex', 'App\Http\Controllers\ControllerCardex@mostcardex')->name(
 Route::get('/periodos', 'App\Http\Controllers\ControllerPeriodo@mostrarperiodo')->name('periodo.actualizado');
 Route::patch('/periodos', 'App\Http\Controllers\ControllerPeriodo@modificarParciales')->name('parciales.actualizado');
 
-
-
+//Colocacion
+Route::get('/colocacion', 'App\Http\Controllers\ControllerColocacion@mostalumnos')->name('colocacion.actualizado');
+Route::get('/update/colocacion/{id_alu}', 'App\Http\Controllers\ControllerColocacion@edit')->name('update.colocacion');
+Route::patch('/update/colocacion/{id_alu}', 'App\Http\Controllers\ControllerColocacion@modificarcolocacion')->name('update.modificarcolocacion');
 
 
 //deletes

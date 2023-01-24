@@ -107,7 +107,10 @@
                                     <a class="dropdown-item {{ Route::currentRouteName() === 'admin.actualizado' ? 'active' : '' }}"
                                         href="{{ route('periodo.actualizado') }}">Parciales</a>
                                 @endcan
-
+                                @can('colocacion')
+                                <a class="dropdown-item {{ Route::currentRouteName() === 'admin.actualizado' ? 'active' : '' }}"
+                                    href="{{ route('colocacion.actualizado') }}">Colocación</a>
+                               @endcan
 
                             </div>
                         </li>

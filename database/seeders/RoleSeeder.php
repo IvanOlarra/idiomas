@@ -24,6 +24,7 @@ class RoleSeeder extends Seeder
         
         //Tablas Root
         Permission::create(['name' => 'administrativo'])->assignRole($roladmin);
+        Permission::create(['name' => 'colocacion'])->assignRole($roladmin);
         Permission::create(['name' => 'consulta'])->syncRoles([$roladmin, $rolsecre]);
         Permission::create(['name' => 'secretaria'])->syncRoles([$roladmin]);
         Permission::create(['name' => 'docente'])->syncRoles([$roladmin, $rolsecre]);

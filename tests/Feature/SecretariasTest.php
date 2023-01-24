@@ -33,7 +33,7 @@ class SecretariasTest extends TestCase
         $this->assertTrue($user->hasRole('Admin'));
 
         //Un DOCENTEistrador debe poder ver la página
-        $this->actingAs($user)->get(route('secre.actualizado'))->assertSee("Lista de Secretariado");
+        $this->actingAs($user)->get(route('secre.actualizado'))->assertSee("Lista de Trabajadores");
     }
 
     public function test_alumno_cant_add_secretariado()

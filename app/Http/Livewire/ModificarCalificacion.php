@@ -31,8 +31,7 @@ class ModificarCalificacion extends Component
             //Cada alumno tiene 4 parciales que serán validados
             $rules["listaCalificaciones." . $alumno . ".CALIF_PARCIAL1"] = 'required|numeric|min:0|max:100';
             $rules["listaCalificaciones." . $alumno . ".CALIF_PARCIAL2"] = 'required|numeric|min:0|max:100';
-            $rules["listaCalificaciones." . $alumno . ".CALIF_PARCIAL3"] = 'required|numeric|min:0|max:100';
-            $rules["listaCalificaciones." . $alumno . ".CALIF_PARCIAL4"] = 'required|numeric|min:0|max:100';
+           
         }
         return $rules;
     }
@@ -94,12 +93,6 @@ class ModificarCalificacion extends Component
                 case "parcial2":
                     $this->parcial2 = $estadoParciales;
                     break;
-                case "parcial3":
-                    $this->parcial3 = $estadoParciales;
-                    break;
-                case "parcial4":
-                    $this->parcial4 = $estadoParciales;
-                     break;
                      default:
 
                      break;     
@@ -135,14 +128,10 @@ class ModificarCalificacion extends Component
 
                 $lista['CALIF_PARCIAL1'] = $alumno->CALIF_PARCIAL1;
                 $lista['CALIF_PARCIAL2'] = $alumno->CALIF_PARCIAL2;
-                $lista['CALIF_PARCIAL3'] = $alumno->CALIF_PARCIAL3;
-                $lista['CALIF_PARCIAL4'] = $alumno->CALIF_PARCIAL4;
                 
            
                 $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL1'] = $alumno->CALIF_PARCIAL1;
                 $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL2'] = $alumno->CALIF_PARCIAL2;
-                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL3']= $alumno->CALIF_PARCIAL3;
-                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL4'] = $alumno->CALIF_PARCIAL4;
                 $this->listaAlumnos[$i]=$lista;
                 
              }
@@ -189,10 +178,6 @@ class ModificarCalificacion extends Component
                         $inscripcion->CALIF_PARCIAL1 = $calificacion['CALIF_PARCIAL1'];
                         
                         $inscripcion->CALIF_PARCIAL2 = $calificacion['CALIF_PARCIAL2'];
-                        
-                        $inscripcion->CALIF_PARCIAL3= $calificacion['CALIF_PARCIAL3'];
-                       
-                        $inscripcion->CALIF_PARCIAL4 = $calificacion['CALIF_PARCIAL4'];
                        
                 }
                 $inscripcion->save();
@@ -216,13 +201,9 @@ class ModificarCalificacion extends Component
                 //Se agregan las calificaciones al response de alumnos
                 $lista[$i]->CALIF_PARCIAL1 = $inscripcion->CALIF_PARCIAL1;
                 $lista[$i]->CALIF_PARCIAL2 = $inscripcion->CALIF_PARCIAL2;
-                $lista[$i]->CALIF_PARCIAL3 = $inscripcion->CALIF_PARCIAL3;
-                $lista[$i]->CALIF_PARCIAL4 = $inscripcion->CALIF_PARCIAL4;
                 $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL1'] = $inscripcion->CALIF_PARCIAL1;
                 $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL2'] = $inscripcion->CALIF_PARCIAL2;
-                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL3']= $inscripcion->CALIF_PARCIAL3;
-                $this->listaCalificaciones[$alumno->ID_ALUMNO]['CALIF_PARCIAL4'] = $inscripcion->CALIF_PARCIAL4;
-           
+               
             }
             //Guardamos los datos en la lista de alumnos
             $this->listaAlumnos = $lista;

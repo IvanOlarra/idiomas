@@ -37,7 +37,7 @@
 
     <!-- Large modal -->
     <div class="container">
-        <h5>Lista de Secretariado
+        <h5>Lista de Trabajadores
             <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus"
@@ -136,7 +136,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Agregar Secretaria</h5>
+                    <h5 class="modal-title">Agregar Trabajadores</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

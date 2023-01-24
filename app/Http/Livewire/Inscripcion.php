@@ -196,8 +196,7 @@ class Inscripcion extends Component
             'ID_INSCRIPCION' => $this->idInscripcion,
             'CALIF_PARCIAL1' => 0,
             'CALIF_PARCIAL2' => 0,
-            'CALIF_PARCIAL3' => 0,
-            'CALIF_PARCIAL4' => 0,
+            'CALIF_FINAL' =>0
         ]);
         $calificacion->save();
 

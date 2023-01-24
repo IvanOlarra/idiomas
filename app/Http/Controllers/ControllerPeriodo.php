@@ -23,8 +23,6 @@ class ControllerPeriodo extends Controller
         $cierre = json_decode($cierres[0]->parcial);
         $informacion['parcial1'] = $cierre->parcial1;
         $informacion['parcial2'] = $cierre->parcial2;
-        $informacion['parcial3'] = $cierre->parcial3;
-        $informacion['parcial4'] = $cierre->parcial4;
 
         return view('periodo', compact('informacion'));
     }

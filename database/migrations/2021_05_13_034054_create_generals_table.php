@@ -186,8 +186,6 @@ class CreateGeneralsTable extends Migration
           $table->foreign('ID_INSCRIPCION')->references('ID_INSCRIPCION')->on('inscripciones')->onUpdate('restrict')->onDelete('restrict');
           $table->float('CALIF_PARCIAL1');
           $table->float('CALIF_PARCIAL2');
-          $table->float('CALIF_PARCIAL3');
-          $table->float('CALIF_PARCIAL4');
           $table->float('CALIF_FINAL');
         });
 

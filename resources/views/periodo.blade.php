@@ -30,18 +30,7 @@
                   Parcial 2
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"  name="parcial3"  @if($informacion['parcial3'] == 1)) checked @endif>
-                <label class="form-check-label" for="defaultCheck3">
-                 Parcial 3
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"  name="parcial4"  @if($informacion['parcial4'] == 1)) checked @endif>
-                <label class="form-check-label" for="defaultCheck">
-                  Parcial 4
-                </label>
-              </div>
+              
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

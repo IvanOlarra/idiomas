@@ -174,9 +174,7 @@ class ControllerGrupo extends Controller
 
         $cal1=$cal->CALIF_PARCIAL1;
         $cal2=$cal->CALIF_PARCIAL2;
-        $cal3=$cal->CALIF_PARCIAL3;
-        $cal4=$cal->CALIF_PARCIAL4;
-        $promedio=($cal1+$cal2+$cal3+$cal4)/4;
+        $promedio=($cal1+$cal2)/2;
         if($promedio < 70){
         $promedio=0;
         }
