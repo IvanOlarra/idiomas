@@ -91,6 +91,9 @@ class ControllerColocacion extends Controller{
               'CARDEX_CALIF_MOD8' => 0,
               'CARDEX_CALIF_MOD9' => 0,
               'CARDEX_CALIF_MOD10' => 0,
+              'CARDEX_CALIF_MOD11' => 0,
+              'CARDEX_CALIF_MOD12' => 0,
+              'CARDEX_CALIF_MOD13' => 0,
               'CARDEX_ACREDITADO' => 'f',
              ]);
          

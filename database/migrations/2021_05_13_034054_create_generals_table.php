@@ -154,6 +154,7 @@ class CreateGeneralsTable extends Migration
             $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');
             $table->integer('ADEUDO_MONTO')->nullable();
             $table->date('ADEUDO_FECHA')->nullable();
+            $table->string('ADEUDO_PERIODO',4)->nullable();
             $table->string('ADEUDO_DESCRIPCION', 30);
         });
 
@@ -173,6 +174,9 @@ class CreateGeneralsTable extends Migration
             $table->float('CARDEX_CALIF_MOD8');
             $table->float('CARDEX_CALIF_MOD9');
             $table->float('CARDEX_CALIF_MOD10');
+            $table->float('CARDEX_CALIF_MOD11');
+            $table->float('CARDEX_CALIF_MOD12');
+            $table->float('CARDEX_CALIF_MOD13');
             $table->string('CARDEX_ACREDITADO', 3);
         });
 

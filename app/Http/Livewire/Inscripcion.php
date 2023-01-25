@@ -63,6 +63,7 @@ class Inscripcion extends Component
         'modulo' => null,
         'cantidadAdeudo' =>  null, 
         'fechaAdeudo' => null,  
+        'periodoAdeudo' => null,
         'descripcionAdeudo' => "",
         'aCursar'=> null,
         'cardex' => null,  //ALMACENA BOOLEANO SI EL ALUMNO YA TIENE CREADO SU CARDEX
@@ -178,6 +179,9 @@ class Inscripcion extends Component
               'CARDEX_CALIF_MOD8' => 0,
               'CARDEX_CALIF_MOD9' => 0,
               'CARDEX_CALIF_MOD10' => 0,
+              'CARDEX_CALIF_MOD11' => 0,
+              'CARDEX_CALIF_MOD12' => 0,
+              'CARDEX_CALIF_MOD13' => 0,
               'CARDEX_ACREDITADO' => 'f',
              ]);
          }
@@ -210,6 +214,7 @@ class Inscripcion extends Component
             'ID_INSCRIPCION' => $this->idInscripcion,
             'ID_ALUMNO' => $this->inscribiendo['id'],
             'ADEUDO_MONTO' => $this->inscribiendo['cantidadAdeudo'],
+            'ADEUDO_PERIODO' => $this->inscribiendo['periodoAdeudo'],
             'ADEUDO_FECHA' =>  $this->inscribiendo['fechaAdeudo'],
             'ADEUDO_DESCRIPCION' => $this->inscribiendo['descripcionAdeudo']
 
@@ -344,7 +349,14 @@ class Inscripcion extends Component
             return $modulo=9;
          }elseif($listaCalificaciones->CARDEX_CALIF_MOD10==0){
             return $modulo=10;
+         }elseif($listaCalificaciones->CARDEX_CALIF_MOD11==0){
+            return $modulo=11;
+        }elseif($listaCalificaciones->CARDEX_CALIF_MOD10==0){
+            return $modulo=12;
+        }elseif($listaCalificaciones->CARDEX_CALIF_MOD10==0){
+            return $modulo=13;
          }
+        
             
 
     }

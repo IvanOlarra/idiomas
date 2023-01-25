@@ -227,6 +227,26 @@ class ControllerGrupo extends Controller
                                                     'CARDEX_CALIF_MOD9' => $promedio,
                                                     ]);
                                                 break; 
+                                                case 10:
+                                                    DB::table('cardexes')->where('ID_ALUMNO', $cal->ID_ALUMNO)->update([
+                                                        'CARDEX_CALIF_MOD10' => $promedio,
+                                                        ]);
+                                                    break; 
+                                                    case 11:
+                                                        DB::table('cardexes')->where('ID_ALUMNO', $cal->ID_ALUMNO)->update([
+                                                            'CARDEX_CALIF_MOD11' => $promedio,
+                                                            ]);
+                                                        break; 
+                                                        case 12:
+                                                            DB::table('cardexes')->where('ID_ALUMNO', $cal->ID_ALUMNO)->update([
+                                                                'CARDEX_CALIF_MOD12' => $promedio,
+                                                                ]);
+                                                            break; 
+                                                            case 13:
+                                                                DB::table('cardexes')->where('ID_ALUMNO', $cal->ID_ALUMNO)->update([
+                                                                    'CARDEX_CALIF_MOD13' => $promedio,
+                                                                    ]);
+                                                                break; 
                                                 default;
                                                      break;
            }

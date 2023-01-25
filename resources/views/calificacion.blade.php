@@ -88,6 +88,10 @@
                 <th>Módulo 7</th>
                 <th>Módulo 8</th>
                 <th>Módulo 9</th>
+                <th>Módulo 10</th>
+                <th>Módulo 11</th>
+                <th>Módulo 12</th>
+                <th>Módulo 13</th>
             </tr>
         </thead>
         @foreach ($selectcardex as $item)
@@ -123,6 +127,18 @@
                 </td>
                 <td>
                     {{$item -> CARDEX_CALIF_MOD9}}
+                </td>
+                <td>
+                    {{$item -> CARDEX_CALIF_MOD10}}
+                </td>
+                <td>
+                    {{$item -> CARDEX_CALIF_MOD11}}
+                </td>
+                <td>
+                    {{$item -> CARDEX_CALIF_MOD12}}
+                </td>
+                <td>
+                    {{$item -> CARDEX_CALIF_MOD13}}
                 </td>
             </tr>
             @endforeach
