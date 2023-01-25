@@ -58,6 +58,12 @@
                             <input name="ADEUDO_FECHA" class="form-control form-control-sm" type="date"
                                 value="{{  $informacion->ADEUDO_FECHA }}" id="example-date-input">
                         </div>
+                        <div class="form-group ">
+                            <label for="exampleFormControlInput1 ">Perido :</label>
+                            <input name="ADEUDO_PERIODO" class="form-control form-control-sm" type="date"
+                                value="{{  $informacion->ADEUDO_PERIODO }}" id="example-date-input">
+                        </div>
+                        
                         <div class="form-row mb-3">
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="ADEUDO_DESCRIPCION" maxlength="500"
                                         rows="3" placeholder="Observaciones">{{  $informacion->ADEUDO_DESCRIPCION }}</textarea>

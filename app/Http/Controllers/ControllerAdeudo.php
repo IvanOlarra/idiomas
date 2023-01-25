@@ -21,10 +21,10 @@ class ControllerAdeudo extends Controller
                 'alumnos.ALUMNO_NOMBRE',
                 'alumnos.ALUMNO_APELLIDO_MAT',
                 'alumnos.ALUMNO_APELLIDO_PAT',
-
                 'adeudos.ID_ADEUDO',
                 'adeudos.ADEUDO_MONTO',
-                'adeudos.ADEUDO_FECHA'
+                'adeudos.ADEUDO_FECHA',
+                'adeudos.ADEUDO_PERIODO'
 
             )->get();
 
@@ -106,6 +106,7 @@ class ControllerAdeudo extends Controller
             'ID_INSCRIPCION' => $informacion->ID_INSCRIPCION,
             'ADEUDO_MONTO' => $informacion->ADEUDO_MONTO,
             'ADEUDO_FECHA' => $informacion->ADEUDO_FECHA,
+            'ADEUDO_PERIODO' => $informacion->ADEUDO_PERIODO,
             'ADEUDO_DESCRIPCION' => $informacion->ADEUDO_DESCRIPCION,
 
         ]);
