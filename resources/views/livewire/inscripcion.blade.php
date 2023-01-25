@@ -133,7 +133,7 @@
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Periodo:</label>
                                     <input class="form-control form-control-sm" wire:model="inscribiendo.periodo"
-                                        type="date">
+                                        type="text">
                                     @error('inscribiendo.periodoAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
