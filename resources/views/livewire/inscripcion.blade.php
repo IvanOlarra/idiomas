@@ -123,7 +123,7 @@
                                 <h5 class="text-center">Agregar Adeudo</h5>
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Fecha:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.fechaAdeudo" maxlength="4"
+                                    <input class="form-control form-control-sm" wire:model="inscribiendo.fechaAdeudo" 
                                         type="date">
                                     @error('inscribiendo.fechaAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Periodo:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodo"
+                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodo" maxlength="4"
                                         type="text">
                                     @error('inscribiendo.periodoAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
