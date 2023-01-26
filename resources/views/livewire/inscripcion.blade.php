@@ -132,8 +132,7 @@
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Periodo:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodoAdeudo" maxlength="4"  style="text-transform:uppercase;"   onkeyup="javascript:this.value=this.value.toUpperCase();"
-                                        type="text">
+                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodoAdeudo" maxlength="4">
                                     @error('inscribiendo.periodoAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
