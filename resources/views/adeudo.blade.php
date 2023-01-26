@@ -50,8 +50,8 @@
                     {{ $item->ALUMNO_NOMBRE }} {{ $item->ALUMNO_APELLIDO_PAT }} {{ $item->ALUMNO_APELLIDO_MAT }}
                 </td>
                 <td>${{ $item->ADEUDO_MONTO }}</td>
-                <td>${{ $item->ADEUDO_FECHA }}</td>
-                <td>${{ $item->ADEUDO_PERIODO }}</td>
+                <td>{{ $item->ADEUDO_FECHA }}</td>
+                <td>{{ $item->ADEUDO_PERIODO }}</td>
 
                 <td>
                     <center>

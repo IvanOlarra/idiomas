@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Periodo:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodoAdeudo" maxlength="4"  style="text-transform:uppercase;" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodoAdeudo" maxlength="4"  style="text-transform:uppercase;"   onkeyup="javascript:this.value=this.value.toUpperCase();"
                                         type="text">
                                     @error('inscribiendo.periodoAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
@@ -157,7 +157,7 @@
                                 <div class="form-row mb-3">
                                     <textarea class="form-control" id="exampleFormControlTextarea1"
                                         wire:model="inscribiendo.descripcionAdeudo" maxlength="500" rows="3"
-                                        placeholder="Observaciones"></textarea>
+                                        placeholder="Observaciones" required></textarea>
                                 </div>
 
                             </div>
