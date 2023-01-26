@@ -130,13 +130,15 @@
                                     @enderror
 
                                 </div>
-                                <div class="form-group ">
+                                <div class="form-row mb-3">
+                                    <div class="col">
                                     <label for="exampleFormControlInput1 ">Periodo:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.periodoAdeudo" maxlength="4">
+                                    <input class="form-control" wire:model="inscribiendo.periodoAdeudo" maxlength="4"/>
                                     @error('inscribiendo.periodoAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
 
+                                </div>
                                 </div>
                                 <div class="form-row mb-3">
                                     <div class="col">
