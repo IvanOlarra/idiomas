@@ -154,7 +154,7 @@ class CreateGeneralsTable extends Migration
             $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');
             $table->integer('ADEUDO_MONTO')->nullable();
             $table->date('ADEUDO_FECHA')->nullable();
-            $table->string('ADEUDO_PERIODO',4)->nullable();
+            $table->string('ADEUDO_PERIODO', 4);
             $table->string('ADEUDO_DESCRIPCION', 30);
         });
 

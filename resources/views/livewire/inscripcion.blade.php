@@ -97,7 +97,8 @@
                                         @foreach ($planesEstudio as $idPlan => $datosPlanEstudio)
                                         @foreach ($datosPlanEstudio['modulos'] as $idModulo => $datosModulo)
                                         @foreach ($datosModulo['grupos'] as $grupo)
-                                        @if($grupo['PLAN_NOMBRE_IDIOMA']===$inscribiendo['idioma'] && $grupo['MODULO_NIVEL'] == $inscribiendo["numeroModulo"] )
+                                        @if($grupo['PLAN_NOMBRE_IDIOMA']===$inscribiendo['idioma'] &&
+                                        $grupo['MODULO_NIVEL'] == $inscribiendo["numeroModulo"] )
                                         @if ($grupo['GRUPO_NUM_ALUMNOS'] < $grupo['GRUPO_LIMITE']) <option
                                             value="{{ $grupo['ID_GRUPO'] }}">
                                             {{ $grupo['GRUPO_NOM_GRUPO'] }}
@@ -123,22 +124,19 @@
                                 <h5 class="text-center">Agregar Adeudo</h5>
                                 <div class="form-group ">
                                     <label for="exampleFormControlInput1 ">Fecha:</label>
-                                    <input class="form-control form-control-sm" wire:model="inscribiendo.fechaAdeudo" 
+                                    <input class="form-control form-control-sm" wire:model="inscribiendo.fechaAdeudo"
                                         type="date">
                                     @error('inscribiendo.fechaAdeudo')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
 
                                 </div>
-                                <div class="form-row mb-3">
-                                    <div class="col">
-                                    <label for="exampleFormControlInput1 ">Periodo:</label>
-                                    <input class="form-control" wire:model="inscribiendo.periodoAdeudo" maxlength="4"/>
-                                    @error('inscribiendo.periodoAdeudo')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
 
-                                </div>
+                                <div class="form-row mb-3">
+                                    <label for="exampleFormControlInput1 ">Periodo :</label>
+                                    <input class="form-control" wire:model="inscribiendo.periodoAdeudo"
+                                        type="text" maxlength="4" style="text-transform:uppercase;"
+                                        onkeyup="javascript:this.value=this.value.toUpperCase();">
                                 </div>
                                 <div class="form-row mb-3">
                                     <div class="col">
@@ -168,8 +166,10 @@
                             <div class="d-flex justify-content-center">
 
                                 <button @if($inscribiendo["cantidad"]==700 || $inscribiendo["cantidad"]==850 ||
-                                    $inscribiendo["cantidadAdeudo"] !=null ) active @else hidden @endif type="button"
-                                    class="btn btn-success mx-1" wire:click="inscribir">Inscribir</button>
+                                    $inscribiendo["fechaAdeudo"] !=null && $inscribiendo["cantidadAdeudo"] !=null &&
+                                    $inscribiendo["periodoAdeudo"] !=null && $inscribiendo["descripcionAdeudo"] !=null)
+                                    active @else hidden @endif type="button" class="btn btn-success mx-1"
+                                    wire:click="inscribir">Inscribir</button>
 
                                 <button type="button" class="btn btn-secondary mx-1"
                                     wire:click="cancelarInscripcion">Cancelar</button>
@@ -183,12 +183,14 @@
                         {{-- Existe el grupo, entonces está inscrito a él --}}
                         <button type="button" class="btn btn-secondary">
                             {{ $contenido['idioma'] }}</button>
-                         {{--@elseif (isset($alumno['ultimoModulo']["$idPlan"]))
+                        {{--@elseif (isset($alumno['ultimoModulo']["$idPlan"]))
                         Si no está inscrito a ningún grupo, pero tiene antecedentes en el idioma
 
                         <button type="button" class="btn btn-success"
-                            wire:click="llenarInscripcion('{{ $alumno['id'] }}','{{ $idPlan }}','{{ $alumno['ultimoModulo']["$idPlan"]['modulo'] + 1 }}','{{$alumno['aCursar']}})">
-                            {{ $contenido['idioma'] }}  M{{ $alumno['ultimoModulo']["$idPlan"]['modulo'] + 1 }}</button>--}}
+                            wire:click="llenarInscripcion('{{ $alumno['id'] }}','{{ $idPlan }}','{{ $alumno['ultimoModulo']["
+                            $idPlan"]['modulo'] + 1 }}','{{$alumno['aCursar']}})">
+                            {{ $contenido['idioma'] }} M{{ $alumno['ultimoModulo']["$idPlan"]['modulo'] + 1
+                            }}</button>--}}
                         @else
                         {{-- No tiene antecedentes en el idioma --}}
 
@@ -291,14 +293,14 @@
 
 
         </div>
-            <div class="container m-1">
-                <div class="row">
-                    <div class="col-6">
-                        {{ $alumnosPaginado->links() }}
-                    </div>
-
+        <div class="container m-1">
+            <div class="row">
+                <div class="col-6">
+                    {{ $alumnosPaginado->links() }}
                 </div>
+
             </div>
+        </div>
 
     </div>
 

@@ -23,6 +23,7 @@ class Adeudo extends Model
         'ID_ALUMNO',
         'ADEUDO_MONTO',
         'ADEUDO_FECHA',
+        'ADEUDO_PERIODO',
         'ADEUDO_DESCRIPCION',
     ];
 }

@@ -125,7 +125,6 @@ class Inscripcion extends Component
     }
 
     public function inscribir(){
-        $this->validate();
 
         $grupo = Grupo::find($this->inscribiendo['idGrupo']);
 
@@ -214,15 +213,14 @@ class Inscripcion extends Component
             'ID_INSCRIPCION' => $this->idInscripcion,
             'ID_ALUMNO' => $this->inscribiendo['id'],
             'ADEUDO_MONTO' => $this->inscribiendo['cantidadAdeudo'],
-            'ADEUDO_PERIODO' => $this->inscribiendo['periodoAdeudo'],
             'ADEUDO_FECHA' =>  $this->inscribiendo['fechaAdeudo'],
-            'ADEUDO_DESCRIPCION' => $this->inscribiendo['descripcionAdeudo']
-
+            'ADEUDO_PERIODO' => $this->inscribiendo['periodoAdeudo'],
+            'ADEUDO_DESCRIPCION' => $this->inscribiendo['descripcionAdeudo'],
          ]);
          $adeudo->save();
          }
 
-        return redirect()->to('/inscripcion'); 
+       return redirect()->to('/inscripcion'); 
     }
 
     public function updated($propertyName)
