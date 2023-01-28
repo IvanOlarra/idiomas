@@ -42,9 +42,10 @@ class ControllerGrupo extends Controller
         $selecmodulo = DB::table('grupos')->get();
         //llenar combo con los planes
        foreach($selecmodulo as $modulo){
+        $this->id=$modulo->ID_GRUPO;
         $this->id++;
        }
-        $this->id++;
+
 
         DB::insert(
             'INSERT INTO `grupos` (`ID_GRUPO`, `ID_MODULO`, `ID_DOCENTE`, `GRUPO_TIPO`, `GRUPO_CLA`, `GRUPO_NOM_GRUPO`, `GRUPO_DES`, `GRUPO_NUM_ALUMNOS`, `GRUPO_LIMITE`, `GRUPO_DIAS`, `GRUPO_HORAS`, `GRUPO_TOTAL_HORAS`, `GRUPO_UBICACION` ) 
@@ -52,14 +53,13 @@ class ControllerGrupo extends Controller
             [
                 $this->id,
                 $informacion->ID_MODULO,
-                $informacion->ID_DOCENTE,
                 $informacion->GRUPO_TIPO,
                 $informacion->GRUPO_CLA,
                 $informacion->GRUPO_NOM_GRUPO,
                 $informacion->GRUPO_DES,
                 0,
                 $informacion->GRUPO_LIMITE,
-                'lunes',
+                $informacion->GRUPO_DIAS,
                 $informacion->GRUPO_HORAS,  
                 $informacion->GRUPO_TOTAL_HORAS,
                 $informacion->GRUPO_UBICACION
