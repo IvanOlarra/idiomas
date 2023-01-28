@@ -148,10 +148,9 @@ class CreateGeneralsTable extends Migration
 
         Schema::create('adeudos', function (Blueprint $table) {
             $table->increments('ID_ADEUDO');
-            $table->string('ID_INSCRIPCION');
-            $table->foreign('ID_INSCRIPCION')->references('ID_INSCRIPCION')->on('inscripciones')->onUpdate('restrict')->onDelete('restrict');
             $table->string('ID_ALUMNO');
             $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');
+            $table->string('PLAN_NOMBRE_IDIOMA', 20);
             $table->integer('ADEUDO_MONTO')->nullable();
             $table->date('ADEUDO_FECHA')->nullable();
             $table->string('ADEUDO_PERIODO', 4);

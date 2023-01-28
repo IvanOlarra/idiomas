@@ -52,7 +52,13 @@
                             <h5 class="text-center">Inscripción a {{ $inscribiendo['idioma'] }}
                                 MÓDULO {{ $inscribiendo['numeroModulo'] }}</h5>
 
-
+                                @if ( Session::has('flash_message') )
+ 
+                                <div class="alert {{ Session::get('flash_type') }}">
+                                    <h3>{{ Session::get('flash_message') }}</h3>
+                                </div>
+                                
+                              @endif
                             {{-- Número de folio --}}
                             <div class="form-row mb-3">
                                 <div class="col">

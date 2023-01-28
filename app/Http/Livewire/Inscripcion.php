@@ -15,7 +15,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 
 class Inscripcion extends Component
 {
@@ -126,6 +126,10 @@ class Inscripcion extends Component
 
     public function inscribir(){
 
+        if(DB::table('adeudos')->WHERE('ID_ALUMNO', $this->inscribiendo['id'])->WHERE('PLAN_NOMBRE_IDIOMA',$this->inscribiendo['idioma'])->exists()){
+            Session::flash('flash_message','El Alumno tiene un adeudo. Favor de validar');
+            Session::flash('flash_type', 'alert-warning');
+        }else{
         $grupo = Grupo::find($this->inscribiendo['idGrupo']);
 
         //ASIGNA ID DEL DOCENTE Y EL MODULO
@@ -210,8 +214,8 @@ class Inscripcion extends Component
          if($this->inscribiendo['cantidadAdeudo']!=null){
          $adeudo = Adeudo::create([
             'ID_ADEUDO' => 1,
-            'ID_INSCRIPCION' => $this->idInscripcion,
             'ID_ALUMNO' => $this->inscribiendo['id'],
+            'PLAN_NOMBRE_IDIOMA' => $this->inscribiendo['idioma'],
             'ADEUDO_MONTO' => $this->inscribiendo['cantidadAdeudo'],
             'ADEUDO_FECHA' =>  $this->inscribiendo['fechaAdeudo'],
             'ADEUDO_PERIODO' => $this->inscribiendo['periodoAdeudo'],
@@ -221,6 +225,7 @@ class Inscripcion extends Component
          }
 
        return redirect()->to('/inscripcion'); 
+        }
     }
 
     public function updated($propertyName)

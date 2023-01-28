@@ -20,6 +20,7 @@ class Adeudo extends Model
     //Atributos de Grupo asignables en masa
     protected $fillable = [
         'ID_INSCRIPCION',
+        'PLAN_NOMRE_IDIOMA',
         'ID_ALUMNO',
         'ADEUDO_MONTO',
         'ADEUDO_FECHA',
