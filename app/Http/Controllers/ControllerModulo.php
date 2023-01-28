@@ -26,7 +26,7 @@ class ControllerModulo extends Controller
         )->get();
         //llenar combo con los planes
        foreach($selecmodulo as $modulo){
-        $this->id++;
+        $this->id=$modulo->ID_MODULO;
        }
        $this->id++;
         DB::insert(
