@@ -62,12 +62,6 @@
                 <td>
                 {{$item -> CALIF_PARCIAL2}}
                 </td>
-                <td>
-                {{$item -> CALIF_PARCIAL3}}
-                </td>
-                <td>
-                {{$item -> CALIF_PARCIAL4}}
-                </td>
             </tr>
             @endforeach
         </tbody>

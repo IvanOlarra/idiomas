@@ -74,24 +74,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </td>
-                        <td><input wire:model.debounce="listaCalificaciones.{{ $alumno['ID_ALUMNO'] }}.CALIF_PARCIAL3"
-                                name="{{ $alumno['ID_ALUMNO'] }}-P3" type="number"
-                                class="form-control form-control-sm {{ $listaCalificaciones[$alumno['ID_ALUMNO']]['CALIF_PARCIAL3'] >= 70 ? 'border-success' : 'border-warning' }}" required
-                                {{ $parcial3 == 1 ? '' : 'disabled' }}>
-                            @error('listaCalificaciones.' . $alumno['ID_ALUMNO'] . '.CALIF_PARCIAL3')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </td>
-                        <td><input wire:model.debounce="listaCalificaciones.{{ $alumno['ID_ALUMNO'] }}.CALIF_PARCIAL4"
-                                name="{{ $alumno['ID_ALUMNO'] }}-P3" type="number"
-                                class="form-control form-control-sm {{ $listaCalificaciones[$alumno['ID_ALUMNO']]['CALIF_PARCIAL4'] >= 70 ? 'border-success' : 'border-warning' }}" required
-                                {{ $parcial4 == 1 ? '' : 'disabled' }}>
-
-                            @error('listaCalificaciones.' . $alumno['ID_ALUMNO'] . '.CALIF_PARCIAL4')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-
-                        </td>
+                    
                         <td>
                        <button wire:click="enviarCalificaciones({{ $alumno['ID_ALUMNO'] }})" 
                        name="{{ $alumno['ID_ALUMNO'] }}-btn" class="btn btn-success" {{ $parcial == -1 ? 'disabled':''  }}>Modificar</a>

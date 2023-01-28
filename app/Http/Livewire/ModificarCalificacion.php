@@ -196,7 +196,7 @@ class ModificarCalificacion extends Component
                 $inscripcion = Inscripcione::
                 join('calificaciones', 'inscripciones.ID_ALUMNO', '=', 'calificaciones.ID_ALUMNO')->
                 join('calificaciones as cal', 'inscripciones.ID_GRUPO', '=', 'cal.ID_GRUPO')->
-                select('calificaciones.CALIF_PARCIAL1','calificaciones.CALIF_PARCIAL2','calificaciones.CALIF_PARCIAL3', 'calificaciones.CALIF_PARCIAL4')->
+                select('calificaciones.CALIF_PARCIAL1','calificaciones.CALIF_PARCIAL2')->
                 where('inscripciones.ID_ALUMNO', $alumno->ID_ALUMNO)->get()->first();
                 //Se agregan las calificaciones al response de alumnos
                 $lista[$i]->CALIF_PARCIAL1 = $inscripcion->CALIF_PARCIAL1;

@@ -25,14 +25,6 @@ class calificacione extends Model
         'ID_INSCRIPCION',
         'CALIF_PARCIAL1',
         'CALIF_PARCIAL2',
-        'CALIF_PARCIAL3',
-        'CALIF_PARCIAL4',
-        /*'P1',
-        'P2',
-        'P3',
-        'P4',
-        'PF',
-        'CALIFICACION_FECHA',*/
     ];
 
     public function grupos()
