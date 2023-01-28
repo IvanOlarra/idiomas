@@ -150,13 +150,11 @@ class Inscripcion extends Component
             'ID_INSCRIPCION' => $this->idInscripcion  ,
             'ID_GRUPO' => $this->inscribiendo['idGrupo'],
             'ID_ALUMNO' => $this->inscribiendo['id'],
-            'ID_DOCENTE' => $this->inscribiendo['docente'],
-            'ID_MODULO' => $this->inscribiendo['modulo'],
             'INSCRIPCION_NUM_FOLIO' => $this->inscribiendo['folio'],
             'INSCRIPCION_MONTO' => $this->inscribiendo['cantidad'],
             'INSCRIPCION_FECHA' => date('Y-m-d H:i:s'),
-            'INSCRIPCION_PERIODO' => 'ENE-JUL',
-            'INSCRIPCION_ANIO' => 2020,
+            'INSCRIPCION_PERIODO' => $this->inscribiendo['periodoAdeudo'],
+            'INSCRIPCION_TIPO'  => $this->inscribiendo['tipoAlumno']
         ]);
         
          //VALIDAR SI EXISTE CARDEX

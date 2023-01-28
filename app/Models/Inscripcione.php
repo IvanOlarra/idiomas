@@ -21,20 +21,11 @@ class Inscripcione extends Model
     protected $fillable = [
         'ID_INSCRIPCION',
         'ID_GRUPO',
-        'ID_ALUMNO',
-        'ID_DOCENTE',
-        'ID_MODULO',    
+        'ID_ALUMNO',  
         'INSCRIPCION_NUM_FOLIO',
         'INSCRIPCION_MONTO',
         'INSCRIPCION_FECHA',
         'INSCRIPCION_ PERIODO',
-        'INSCRIPCION_ANIO',
-        /*'P1',
-        'P2',
-        'P3',
-        'P4',
-        'PF',
-        'CALIFICACION_FECHA',*/
     ];
 
     public function grupo()

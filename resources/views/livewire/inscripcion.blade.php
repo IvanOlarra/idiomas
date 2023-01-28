@@ -70,10 +70,16 @@
                                 </div>
                             </div>
                             <div class="form-row mb-3">
+                                <label for="exampleFormControlInput1 ">Periodo :</label>
+                                <input class="form-control" wire:model="inscribiendo.periodoAdeudo"
+                                    type="text" maxlength="4" style="text-transform:uppercase;"
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            </div>
+                            <div class="form-row mb-3">
                                 {{-- Tipo Alumno --}}
                                 <select class="custom-select" aria-placeholder="Grupo"
                                     wire:model="inscribiendo.tipoAlumno">
-                                    <option wire:model="inscribiendo.grupo" selected hidden>Tipo Alumno</option>
+                                    <option wire:model="inscribiendo.tipoAlumno" selected hidden>Tipo Alumno</option>
                                     <option value="Interno">Interno</option>
                                     <option value="Externo">Externo </option>
                                 </select>
@@ -138,12 +144,6 @@
 
                                 </div>
 
-                                <div class="form-row mb-3">
-                                    <label for="exampleFormControlInput1 ">Periodo :</label>
-                                    <input class="form-control" wire:model="inscribiendo.periodoAdeudo"
-                                        type="text" maxlength="4" style="text-transform:uppercase;"
-                                        onkeyup="javascript:this.value=this.value.toUpperCase();">
-                                </div>
                                 <div class="form-row mb-3">
                                     <div class="col">
                                         <label for="exampleFormControlInput1">Adeudo:</label>

@@ -135,21 +135,18 @@ class CreateGeneralsTable extends Migration
             $table->foreign('ID_GRUPO')->references('ID_GRUPO')->on('grupos')->onUpdate('restrict')->onDelete('restrict');
             $table->string('ID_ALUMNO');
             $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');
-            $table->integer('ID_DOCENTE');
-            $table->foreign('ID_DOCENTE')->references('ID_DOCENTE')->on('docentes')->onUpdate('restrict')->onDelete('restrict');
-            $table->integer('ID_MODULO');
-            $table->foreign('ID_MODULO')->references('ID_MODULO')->on('modulos')->onUpdate('restrict')->onDelete('restrict');
             $table->integer('INSCRIPCION_NUM_FOLIO');
             $table->integer('INSCRIPCION_MONTO');
             $table->date('INSCRIPCION_FECHA');
             $table->string('INSCRIPCION_PERIODO', 10);
             $table->integer('INSCRIPCION_ANIO');
+            $table->string('INSCRIPCION_TIPO', 15);
         });
 
         Schema::create('adeudos', function (Blueprint $table) {
             $table->increments('ID_ADEUDO');
             $table->string('ID_ALUMNO');
-            $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('ID_ALUMNO')->references('ID_ALUMNO')->on('alumnos')->onUpdate('restrict')->onDelete('restrict');   
             $table->string('PLAN_NOMBRE_IDIOMA', 20);
             $table->integer('ADEUDO_MONTO')->nullable();
             $table->date('ADEUDO_FECHA')->nullable();

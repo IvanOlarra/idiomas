@@ -58,11 +58,7 @@
                             <input name="ADEUDO_FECHA" class="form-control form-control-sm" type="date"
                                 value="{{  $informacion->ADEUDO_FECHA }}" id="example-date-input">
                         </div>
-                        <div class="form-group ">
-                            <label for="exampleFormControlInput1 ">Periodo :</label>
-                            <input name="ADEUDO_PERIODO" class="form-control form-control-sm" type="text"  maxlength="4"  style="text-transform:uppercase;" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"
-                                value="{{  $informacion->ADEUDO_PERIODO }}" id="example-date-input">
-                        </div>
+                       
                         
                         <div class="form-row mb-3">
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="ADEUDO_DESCRIPCION" maxlength="500"
