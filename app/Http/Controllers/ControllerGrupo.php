@@ -53,6 +53,7 @@ class ControllerGrupo extends Controller
             [
                 $this->id,
                 $informacion->ID_MODULO,
+                $informacion->ID_DOCENTE,
                 $informacion->GRUPO_TIPO,
                 $informacion->GRUPO_CLA,
                 $informacion->GRUPO_NOM_GRUPO,
