@@ -28,16 +28,30 @@
                         </div>
                         <div class="form-group" hidden>
                             <label for="exampleFormControlInput1">Alumno:</label>
-                            <input type="text" name="ID_ALUMNO" class="form-control form-control-sm" maxlength="30"
-                                placeholder="Adeudo" value="{{ $informacion->ID_ALUMNO }}">
+                            <input type="text" name="ID_ADEUDO" class="form-control form-control-sm" maxlength="30"
+                                placeholder="Adeudo" value="{{ $informacion->ID_ADEUDO }}">
                             {!! $errors->first('ID_ADEUDO','<span class="alert-danger">:message</span><br>')
                             !!}
                         </div>
                         <div class="form-group" hidden>
                             <label for="exampleFormControlInput1">Alumno:</label>
-                            <input type="text" name="ID_INSCRIPCION" class="form-control form-control-sm" maxlength="30"
-                                placeholder="Adeudo" value="{{ $informacion->ID_INSCRIPCION }}">
-                            {!! $errors->first('ID_ADEUDO','<span class="alert-danger">:message</span><br>')
+                            <input type="text" name="ID_ALUMNO" class="form-control form-control-sm" maxlength="30"
+                                placeholder="Adeudo" value="{{ $informacion->ID_ALUMNO }}">
+                            {!! $errors->first('ID_ALUMNO','<span class="alert-danger">:message</span><br>')
+                            !!}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Periodo:</label>
+                            <input type="text" name="ADEUDO_PERIODO" class="form-control form-control-sm" maxlength="4"
+                                placeholder="Adeudo" value="{{ $informacion->ADEUDO_PERIODO }}">
+                            {!! $errors->first('ADEUDO_PERIODO','<span class="alert-danger">:message</span><br>')
+                            !!}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Periodo:</label>
+                            <input type="text" name="PLAN_NOMBRE_IDIOMA" class="form-control form-control-sm" maxlength="30"
+                                placeholder="Adeudo" value="{{ $informacion->PLAN_NOMBRE_IDIOMA }}">
+                            {!! $errors->first('PLAN_NOMBRE_IDIOMA','<span class="alert-danger">:message</span><br>')
                             !!}
                         </div>
                         <div class="form-row mb-3">

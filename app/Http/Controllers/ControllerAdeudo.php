@@ -101,9 +101,8 @@ class ControllerAdeudo extends Controller
         
         $selecalum = DB::table('adeudos')->where('ID_ADEUDO', $id)->update([
 
-            'ID_ADEUDO' => $id,
             'ID_ALUMNO' => $informacion->ID_ALUMNO,
-            'ID_INSCRIPCION' => $informacion->ID_INSCRIPCION,
+            'PLAN_NOMBRE_IDIOMA' => $informacion->PLAN_NOMBRE_IDIOMA,
             'ADEUDO_MONTO' => $informacion->ADEUDO_MONTO,
             'ADEUDO_FECHA' => $informacion->ADEUDO_FECHA,
             'ADEUDO_PERIODO' => $informacion->ADEUDO_PERIODO,
